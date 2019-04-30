@@ -18,7 +18,7 @@ end
 
 for i in 1..20
     Listing.create(
-        userid: (1..20).to_a.sample,
+        user_id: (1..20).to_a.sample,
         title: Faker::Music.album,
         artist: Faker::Music.band,
         year: (1900..2019).to_a.sample,
