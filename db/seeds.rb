@@ -22,7 +22,7 @@ for i in 1..20
         title: Faker::Music.album,
         artist: Faker::Music.band,
         year: (1900..2019).to_a.sample,
-        format: (1..3).to_a.sample,
+        format_id: (1..3).to_a.sample,
         price: (5..2000).to_a.sample,
         condition: (1..5).to_a.sample,
         description: Faker::TvShows::GameOfThrones.quote
