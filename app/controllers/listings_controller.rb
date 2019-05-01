@@ -1,5 +1,7 @@
 class ListingsController < ApplicationController
-    before_action :set_listing, only: [:show, :edit, :update, :destroy]    
+    before_action :authenticate_user!, except: [:index, :show]
+    before_action :set_listing, only: [:show, :edit, :update, :destroy]   
+    before_action :authorize_user, only: [:edit, :update, :destroy] 
     before_action :set_genre_format_and_condition, only: [:new, :edit]
 
 
@@ -10,13 +12,12 @@ class ListingsController < ApplicationController
 
     def create 
         #create new listing
-        p current_user
-        @listing = Listing.create(listing_params)
+        @listing = current_user.listings.create(listing_params)
         if @listing.errors.any?
             set_genre_format_and_condition
             render "new"
         else
-            redirect_to listing_path
+            redirect_to listing_path(@listing.id)
         end
         
     end  
@@ -43,7 +44,7 @@ class ListingsController < ApplicationController
         description: params[:description]
 
         )
-        redirect_to listings_path
+        redirect_to listing_path
     end
 
     def edit 
@@ -53,7 +54,7 @@ class ListingsController < ApplicationController
     def destroy 
         #deletes current listings
         @listing.destroy
-        redirect_to listings_path
+        redirect_to listing_path
     end  
         
     private
@@ -66,6 +67,12 @@ class ListingsController < ApplicationController
         @genres = Genre.all
         @formats = Format.all
         @conditions = Listing.conditions.keys
+    end
+
+    def authorize_user
+        if @listing.user_id != current_user.id
+            redirect_to listings_path
+        end
     end
 
     def listing_params
