@@ -8,13 +8,6 @@
         <%= form.label :title %>
         <%= form.text_field :title %>
     </div>
-   <p>Genre</p>
-    <% @genres.each do |genre| %>
-    <div>
-        <%= form.check_box :genre, genre %>
-        <%= form.label "genre_#{option}".to_sym, genre %>
-    </div>
-     <% end %>
 
     <div>
         <%= form.label :format_id %>
