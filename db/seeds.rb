@@ -5,15 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 for i in 1..20
-    User.create(
+    Format.create(
+    name: "Good"
+    )
+    puts "Created #{i} Sweet ass formats"
+end
+
+
+
+
+if User.count == 0
+    (1..10).each do |i|
+    user = User.new(
         username: Faker::Name.unique.name,
-        email: Faker::Internet.email,
-        password: "cheese",
+        email: Faker::Internet.free_email,
+        encrypted_password: "cheese",
         location: Faker::University.name
     )
-    puts "Created #{i} users"
+    user.save!(validate: false)
+    p "Created #{i} Kickass users"
+    p user
+end
 end
 
 for i in 1..20
@@ -22,10 +35,10 @@ for i in 1..20
         title: Faker::Music.album,
         artist: Faker::Music.band,
         year: (1900..2019).to_a.sample,
-        format: (1..3).to_a.sample,
+        format_id: (1..3).to_a.sample,
         price: (5..2000).to_a.sample,
         condition: (1..5).to_a.sample,
         description: Faker::TvShows::GameOfThrones.quote
     )
-    puts "Created #{i} albums"
+    puts "Created #{i} listings"
 end
