@@ -5,6 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
+This is a test for GitKracken... Y'all have a good day now
+Yo... I think I understand this Kracken-Vibe
+
 * Ruby version
 
 * System dependencies
@@ -22,4 +25,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * Dev branch
-* ...
+* ... 
