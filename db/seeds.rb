@@ -20,7 +20,8 @@ if User.count == 0
     user = User.new(
         username: Faker::Name.unique.name,
         email: Faker::Internet.free_email,
-        encrypted_password: "cheese",
+        password: "cheese",
+        password_confirmation: "cheese",
         location: Faker::University.name
     )
     user.save!(validate: false)
