@@ -1,0 +1,16 @@
+<h1></h1>
+
+<% @listings.each do |listing| %>
+    <div >
+        <p><%= listing.artist%></p>
+        <p><%= listing.title%></p>
+        <p><%= listing.format %></p>
+        <p><%= listing.condition %></p>
+        <p><%= listing.year %></p>
+        <p><%= listing.price %></p>
+        <p><%= listing.description %></p>
+
+        <%= link_to "edit", edit_listings_path(@listing.id) %>
+         <%= link_to "show", listings_path(@listing.id) %>
+    </div>
+<% end %>
