@@ -1,0 +1,44 @@
+<%= form_with model: listing, local: true do |form|%>
+    <div>
+        <%= form.label :artist %>
+        <%= form.text_field :artist %>
+    </div>
+
+    <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </div>
+    <p>Genre</p>
+
+        <%= form.label :format_id %>
+        <%= form.select(:format_id, @formats.map{|f| [f.name, f.id]}) %>
+    </div>
+
+    <div>
+        <%= form.label :year %>
+        <%= form.text_field :year %>
+    </div>
+
+    <div>
+        <%= form.label :price %>
+        AUD$<%= form.text_field :price %>
+    </div>
+
+    <p>Album Condition</p>
+    <% @conditions.each do |option| %>
+    <div>
+        <%= form.radio_button :condition, option %>
+        <%= form.label "condition_#{option}".to_sym, option %>
+    </div>
+     <% end %>
+
+    <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+
+<% end %>

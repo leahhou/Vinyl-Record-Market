@@ -4,4 +4,5 @@ class Listing < ApplicationRecord
   has_many :genres_listings
   has_many :genres, through: :genres_listings
   has_one :purchase
+  enum condition: { wore: 0, normal: 1, good: 2, excellent: 3}
 end
