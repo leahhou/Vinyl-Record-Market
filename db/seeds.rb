@@ -14,7 +14,6 @@ end
 
 
 
-
 if User.count == 0
     (1..10).each do |i|
     user = User.new(

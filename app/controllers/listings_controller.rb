@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-
+before_action :set_genre_format_and_condition, only: [:new, :edit]
 
     def index 
         #shows all listings
@@ -30,4 +30,15 @@ class ListingsController < ApplicationController
         #deletes current listings
     end  
         
+    private
+    def set_listing
+        id = params[:id]
+        @listing = Listing.find(id)
+    end  
+
+    def set_genre_format_and_condition
+        @genres = Genre.all
+        @formats = Format.all
+        @conditions = Listing.conditions.keys
+    end
 end
