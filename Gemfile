@@ -68,3 +68,5 @@ gem "faker", "~> 1.9"
 gem "aws-sdk-s3", "~> 1.36"
 
 gem "stripe", "~> 4.16"
+
+gem 'money-rails'
