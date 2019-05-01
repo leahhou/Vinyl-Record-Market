@@ -6,3 +6,4 @@ get "/", to: "pages#home", as: "root"
   get "/users", to: "users#index", as: "users"
   get "/users/:id", to: "users#show"
 
+end
