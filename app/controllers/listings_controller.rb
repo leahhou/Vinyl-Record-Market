@@ -34,17 +34,9 @@ class ListingsController < ApplicationController
 
     def update 
         #updates the current listing
-        @listing = Listing.find(params[:id])
-        @listing.update(artist: params[:artist],
-        title: params[:title],
-        format_id: params[:format_id],
-        year: params[:year],
-        price: params[:price],
-        condition: params[:condition],
-        description: params[:description]
-
-        )
-        redirect_to listing_path
+        @listing = current_user.listings.find(params[:id])
+        @listing.update(listins_params)
+        redirect_to listing_path(@listing.id)
     end
 
     def edit 
@@ -76,6 +68,6 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description)
+        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, :genre_id)
     end
 end
