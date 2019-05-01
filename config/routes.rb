@@ -5,4 +5,4 @@ get "/", to: "pages#home", as: "root"
   resource :listings
   get "/users", to: "users#index", as: "users"
   get "/users/:id", to: "users#show"
-end
+
