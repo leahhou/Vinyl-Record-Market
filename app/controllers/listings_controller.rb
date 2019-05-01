@@ -28,7 +28,7 @@ class ListingsController < ApplicationController
 
     def show 
         #view a single listing
-
+        
     end  
 
     def update 
