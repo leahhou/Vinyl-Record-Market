@@ -26,9 +26,21 @@ class ListingsController < ApplicationController
         @listing = Listing.new
     end  
 
-    def show 
-        #view a single listing
-        
+    def show
+    stripe_session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+        amount: @listing.price,
+        name: @listing.title,                          #Edit this to include more information fields
+        description: @listing.description,
+        currency: 'aud',
+        quantity: 1,
+        }],
+        success_url: 'https://localhost:3000/success', #Needs to be changed before Heroku
+        cancel_url: 'https://localhost:3000/cancel',   #Needs to be changed before Heroku
+    ) 
+    @stripe_session_id = stripe_session.id
+    #view a single listing    
     end  
 
     def update 
