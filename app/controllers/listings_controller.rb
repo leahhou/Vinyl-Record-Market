@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
     before_action :set_listing, only: [:show, :edit, :update, :destroy]   
     before_action :authorize_user, only: [:edit, :update, :destroy] 
     before_action :set_genre_format_and_condition, only: [:new, :edit]
+    before_action :set_genre_format_and_condition, only: [:new, :edit]
 
 
     def index 
