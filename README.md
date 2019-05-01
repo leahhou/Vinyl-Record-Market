@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+This is a test for GitKracken... Y'all have a good day now
+
 * Ruby version
 
 * System dependencies
