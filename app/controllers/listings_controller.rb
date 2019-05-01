@@ -12,14 +12,17 @@ class ListingsController < ApplicationController
 
     def create 
         #create new listing
+        byebug
+        p "good morning #{params[:genre_id]}"
         @listing = current_user.listings.create(listing_params)
+        p @listing.price
+
         if @listing.errors.any?
             set_genre_format_and_condition
             render "new"
         else
             redirect_to listing_path(@listing.id)
         end
-        
     end  
 
     def new 
@@ -28,6 +31,7 @@ class ListingsController < ApplicationController
     end  
 
     def show
+        @listing[:price]= @listing[:price]*100
     stripe_session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
@@ -80,7 +84,7 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, :genre_id)
+        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, :genre_ids => [])
     end
 
 end
