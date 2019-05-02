@@ -12,7 +12,6 @@ class ListingsController < ApplicationController
 
     def create 
         #create new listing
-        byebug
         p "good morning #{params[:genre_id]}"
         @listing = current_user.listings.create(listing_params)
         p @listing.price
@@ -84,7 +83,7 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, :genre_ids => [])
+        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, :genre_id => [])
     end
 
 end

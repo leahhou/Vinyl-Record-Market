@@ -10,9 +10,9 @@
     </div>
     <p>Genre</p>
     <div>
-    <%= hidden_field_tag "listing[genre_ids][]", nil%>
+    <%= hidden_field_tag "listing[genre_id][]", nil%>
     <% @genres.each do |genre|%>
-      <%= check_box_tag "listing[genre_ids][]",:{:multiple => true}, genre.id,
+      <%= check_box_tag "listing[genre_id][]", genre.id,
       @listing.genre_ids.include?(genre.id), id: dom_id(genre)%>
       <%= label_tag dom_id(genre), genre.name%><br>
       <% end%>
@@ -30,7 +30,7 @@
 
     <div>
         <%= form.label :price %>
-        AUD$<%= form.text_field :price %>
+        AUD$<%= form.text_field :price %> (intergar only)
     </div>
 
     <p>Album Condition</p>
