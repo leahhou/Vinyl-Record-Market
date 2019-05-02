@@ -1,12 +1,11 @@
 <h1></h1>
 
 <% @listings.each do |listing| %>
-    <div >
-        <p><%= listing.artist%></p>
-        <p><%= listing.title%></p>
+<ul>
+<li>
+    <p>Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id) %></p>
+</li>
 
+</ul>
 
-        <%# <%= link_to "edit", edit_listing_path(@listing.id) %> 
-         <%# <%= link_to "show", listing_path(@listing.id) %>
-    </div>
 <% end %>

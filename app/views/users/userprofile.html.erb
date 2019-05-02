@@ -4,18 +4,16 @@
 <%else%>
 <%=image_tag "blank"%>
 <%end%>
-
 <div>
 My Info
 <p>username: <%= current_user[:username] %> </p>
 <p>location: <%= current_user[:location] %> </p>
 </div>
-
 <div>
 My Current Listings
 <%# need to verify when new form listing is working! %>
 <% for listing in current_user.listings %>
-<%= listing[:album] %><% link_to "listing[:album]", listing_path(listing.id) %>
+<p> - <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %></p>
 <% end %>
 </div>
 
