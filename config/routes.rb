@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   patch "/listings/:id", to: "listings#update"
   delete "/listings/:id", to: "listings#destroy"
 
-
   get "/users", to: "users#index", as: "users"
   get "/users/:id", to: "users#show"
-  
+
+  post "/payments", to: "listings#payment"
 end
 

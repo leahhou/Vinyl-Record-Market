@@ -4,12 +4,11 @@ class ListingsController < ApplicationController
     before_action :authorize_user, only: [:edit, :update, :destroy] 
     before_action :set_genre_format_and_condition, only: [:new, :edit]
     before_action :set_genre_format_and_condition, only: [:new, :edit]
-
+    skip_before_action :verify_authenticity_token, only: [:payment]
 
     def index 
         #shows all listings
         @listings = Listing.all
-        byebug
     end
 
     def create 
@@ -64,6 +63,9 @@ class ListingsController < ApplicationController
         redirect_to listing_path
     end  
         
+    def payment
+        p params
+    end
     private
     def set_listing
         id = params[:id]
