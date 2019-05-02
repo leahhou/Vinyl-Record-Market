@@ -6,4 +6,5 @@ class Listing < ApplicationRecord
   accepts_nested_attributes_for :genres_listings
   has_one :purchase
   enum condition: { wore: 0, normal: 1, good: 2, excellent: 3}
+  has_one_attached :cover
 end
