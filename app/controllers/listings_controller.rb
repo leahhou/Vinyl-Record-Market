@@ -21,6 +21,7 @@ class ListingsController < ApplicationController
             set_genre_format_and_condition
             render "new"
         else
+            @listing.genre_ids=params[:listing][:genre_id]
             redirect_to listing_path(@listing.id)
         end
     end  
@@ -32,6 +33,7 @@ class ListingsController < ApplicationController
 
     def show
         @listing[:price]= @listing[:price]*100
+        @listing_genres = @listing.genres
     stripe_session = Stripe::Checkout::Session.create(
         #customer_email: @user.email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
