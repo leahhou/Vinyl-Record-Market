@@ -44,7 +44,7 @@ class ListingsController < ApplicationController
         cancel_url: 'https://localhost:3000/cancel',   #Needs to be changed before Heroku
     ) 
     @stripe_session_id = stripe_session.id
-    #view a single listing    
+    #view a single listing  
     end  
 
     def update 
