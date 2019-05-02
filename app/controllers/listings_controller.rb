@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
     def index 
         #shows all listings
         @listings = Listing.all
+        byebug
     end
 
     def create 
@@ -30,6 +31,7 @@ class ListingsController < ApplicationController
 
     def show
     stripe_session = Stripe::Checkout::Session.create(
+        #customer_email: @user.email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
         line_items: [{
         amount: @listing.price,
@@ -38,8 +40,8 @@ class ListingsController < ApplicationController
         currency: 'aud',
         quantity: 1,
         }],
-        success_url: 'https://localhost:3000/success', #Needs to be changed before Heroku
-        cancel_url: 'https://localhost:3000/cancel',   #Needs to be changed before Heroku
+        success_url: 'http://localhost:3000/listings', #Needs to be changed before Heroku
+        cancel_url: 'http://localhost:3000/cancel',    #Needs to be changed before Heroku
     ) 
     @stripe_session_id = stripe_session.id
     #view a single listing    
