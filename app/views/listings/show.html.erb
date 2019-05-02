@@ -4,6 +4,13 @@
 <div>
 <p>Album:<%= @listing.title%></p>
 <p>Artist:<%= @listing.artist%></p>
+<p>Genres:
+<% @listing_genres.each do |genre|%>
+<ul>
+<li><%= genre[:name]%></li>
+</ul>
+<% end %>
+</p>
 <p>Owner: <%= User.find(@listing.user_id)[:username]%></p>
 <button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%# need to make status dynamic %>
