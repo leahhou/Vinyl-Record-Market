@@ -1,8 +1,13 @@
 
 <button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-<p>Album Cover Img</p>
+
 
 <div>
+<%if @listing.cover.attached?%>
+<%= image_tag @listing.cover %>
+<%else%>
+<%= image_tag 'coverart' %>
+<%end%>
 <p>Album:<%= @listing.title%></p>
 <p>Artist:<%= @listing.artist%></p>
 <p>Genres:
