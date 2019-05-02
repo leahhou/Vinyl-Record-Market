@@ -9,13 +9,18 @@ My Info
 <p>username: <%= current_user[:username] %> </p>
 <p>location: <%= current_user[:location] %> </p>
 </div>
-<div>
-My Current Listings
+
+<h1> My Current Listings </h1>
 <%# need to verify when new form listing is working! %>
-<% for listing in current_user.listings %>
-<p> - <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %></p>
+ <% for listing in current_user.listings %>
+    <% if listing.cover.attached?%>
+    <%= image_tag listing.cover %>
+    <%else%>
+    <%= image_tag 'coverart' %>
+    <%end%>
+<div> - <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </div>
 <% end %>
-</div>
+
 
 <div>
 My Sold Listings

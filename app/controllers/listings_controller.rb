@@ -34,6 +34,7 @@ class ListingsController < ApplicationController
     def show
         @listing[:price]= @listing[:price]*100
         @listing_genres = @listing.genres
+        @purchases = Purchase.all
     stripe_session = Stripe::Checkout::Session.create(
         #customer_email: @user.email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
@@ -54,7 +55,7 @@ class ListingsController < ApplicationController
         cancel_url: 'http://localhost:3000/cancel',    #Needs to be changed before Heroku
     ) 
     @stripe_session_id = stripe_session.id
-    #view a single listing  
+    #view a single listing 
     end  
 
     def update 
