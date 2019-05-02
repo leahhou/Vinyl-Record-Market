@@ -3,6 +3,11 @@
 <p>Album Cover Img</p>
 
 <div>
+<%if @listing.cover.attached?%>
+<%= image_tag @listing.cover %>
+<%else%>
+<%= image_tag 'coverart' %>
+<%end%>
 <p>Album:<%= @listing.title%></p>
 <p>Artist:<%= @listing.artist%></p>
 <p>Genres:
