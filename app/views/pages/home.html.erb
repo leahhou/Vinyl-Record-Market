@@ -11,7 +11,7 @@ Most 3 Recent Records
 <%  @home_listings.each do |listing| %>
 <ul>
 <li>
-    <p>Album: <%= listing.title%> |  Artist: <%= listing.artist%></p>
+    Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%>
 </li>
 </ul>
 <% end %>
