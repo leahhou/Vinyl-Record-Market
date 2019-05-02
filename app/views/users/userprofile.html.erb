@@ -1,4 +1,4 @@
-<h1> <%=@user.username%> 's Profile <h1>
+<h1> <%=current_user[:username]%> 's Profile <h1>
 <%if @user.avatar.attached?%>
 <%= image_tag @user.avatar%>
 <%else%>
@@ -6,20 +6,20 @@
 <%end%>
 
 <div>
-
-<p>username: <%=@user.username%> </p>
-<p>location: <%= @user.location%> </p>
+My Info
+<p>username: <%= current_user[:username] %> </p>
+<p>location: <%= current_user[:location] %> </p>
 </div>
 
 <div>
-<%=@user.username%>'s Listings
+My Current Listings
 <%# need to verify when new form listing is working! %>
-<% for listing in @user.listings %>
+<% for listing in current_user.listings %>
 <%= listing[:album] %><% link_to "listing[:album]", listing_path(listing.id) %>
 <% end %>
 </div>
 
 <div>
- Sold Listing
+My Sold Listings
 <%# Need to hook with purchase %>
 </div>

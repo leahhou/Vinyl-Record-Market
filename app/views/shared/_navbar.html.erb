@@ -1,0 +1,6 @@
+<%= link_to "Return Home", root_path %>
+<% if current_user%>
+<%= link_to "Go to Profile", my_profile_path %>
+<%else%>
+<%=link_to "Sign up", new_user_registration_path%>
+<%end%>
