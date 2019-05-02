@@ -2,6 +2,8 @@
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <p>Album Cover Img</p>
 
+
+
 <div>
 <%if @listing.cover.attached?%>
 <%= image_tag @listing.cover %>
@@ -22,7 +24,6 @@
 <%# need to make status dynamic %>
 <button > Contact <%= User.find(@listing.user_id)[:username]%></button>
 <%# need to make status dynamic %>
-<p>Status: Available</p> 
 
 
 </div>
@@ -66,3 +67,7 @@ for(let i = 0; i < elements.length; i++) {
 </script>
 
 <%= javascript_include_tag "payment_button"%>
+
+<button > Contact <%= User.find(@listing.user_id)[:username]%></button>
+</div>
+
