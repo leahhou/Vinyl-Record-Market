@@ -11,8 +11,12 @@ id = params[:id]
 end
 
 def userprofile
-id = current_user.id
-@user = User.find(id)
+    if current_user
+        id = current_user.id
+        @user = User.find(id)
+    else 
+        redirect_to new_user_session_path
+    end
 end
 
 end
