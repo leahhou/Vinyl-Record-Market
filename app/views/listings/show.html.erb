@@ -1,6 +1,6 @@
 
-<button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-
+<button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+<p>Album Cover Img</p>
 
 <div>
 <%if @listing.cover.attached?%>
@@ -18,7 +18,7 @@
 <% end %>
 </p>
 <p>Owner: <%= User.find(@listing.user_id)[:username]%></p>
-<button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+<button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%# need to make status dynamic %>
 <button > Contact <%= User.find(@listing.user_id)[:username]%></button>
 <%# need to make status dynamic %>
@@ -42,22 +42,27 @@
 <%# need to fix genre dynamic display %>
 <%# <p>Genre:<%= @listing.genre_id%>
 <p>Album imges</p>
-<button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+<button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <button > Contact <%= User.find(@listing.user_id)[:username]%></button>
 </div>
 
 
-<script>                                                                            //This is the "dirty way" -Garret 2019 
-document.getElementById("stripePayment").addEventListener("click", function() {
-var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
-    stripe.redirectToCheckout({
-      sessionId: '<%= @stripe_session_id %>',
-    }).then(function (result) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
-    });
-});
+<script> //This is the "dirty way" -Garret 2019 
+let elements = document.querySelectorAll("[data-stripe='stripePayment']");
+
+for(let i = 0; i < elements.length; i++) {
+  elements[i].addEventListener("click", function() {
+  var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
+      stripe.redirectToCheckout({
+        sessionId: '<%= @stripe_session_id %>',
+      }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+      });
+  });
+}
+
 </script>
 
 <%= javascript_include_tag "payment_button"%>
