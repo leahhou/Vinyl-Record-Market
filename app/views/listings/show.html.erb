@@ -4,7 +4,7 @@
 <div>
 <p>Album:<%= @listing.title%></p>
 <p>Artist:<%= @listing.artist%></p>
-<p>Artist:<%= @listing.artist%></p>
+<p>Owner: <%= User.find(@listing.user_id)[:username]%></p>
 <button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%# need to make status dynamic %>
 <button > Contact <%= User.find(@listing.user_id)[:username]%></button>
@@ -27,7 +27,7 @@
 
 <div>
 <%# need to fix genre dynamic display %>
-<p>Genre:<%= @listing.genre_id%></p>
+<%# <p>Genre:<%= @listing.genre_id%>
 <p>Album imges</p>
 <button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <button > Contact <%= User.find(@listing.user_id)[:username]%></button>
