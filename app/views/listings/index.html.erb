@@ -3,7 +3,7 @@
 <% @listings.each do |listing| %>
 <ul>
 <li>
-    <p>Album: <%= listing.title%> |  Artist: <%= listing.artist%></p>
+    <p>Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id) %></p>
 </li>
 
 </ul>
