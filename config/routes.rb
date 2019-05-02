@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/users", to: "users#index", as: "users"
   get "/users/:id", to: "users#show"
 
-  post "/payments", to: "listings#payment"
+  post "/payments", to: "payments#stripe"
+  get "/payments/success", to: "payments#success"
 end
 

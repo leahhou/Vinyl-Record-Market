@@ -3,9 +3,9 @@ class ListingsController < ApplicationController
     before_action :set_listing, only: [:show, :edit, :update, :destroy, :more]   
     before_action :authorize_user, only: [:edit, :update, :destroy] 
     before_action :set_genre_format_and_condition, only: [:new, :edit]
-    before_action :set_genre_format_and_condition, only: [:new, :edit]
-    skip_before_action :verify_authenticity_token, only: [:payment]
+    before_action :set_genre_format_and_condition, only: [:new, :edit]  
     before_action :set_genre_format_and_condition, only: [:new, :edit, :more]
+    #skip_before_action :verify_authenticity_token, only: [:payment]
 
     def more 
     end 
@@ -35,6 +35,7 @@ class ListingsController < ApplicationController
     stripe_session = Stripe::Checkout::Session.create(
         #customer_email: @user.email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
+        client_reference_id: current_user.id,
         line_items: [{
         amount: @listing.price,
         name: @listing.title,                          #Edit this to include more information fields
@@ -42,7 +43,12 @@ class ListingsController < ApplicationController
         currency: 'aud',
         quantity: 1,
         }],
-        success_url: 'http://localhost:3000/listings', #Needs to be changed before Heroku
+        payment_intent_data: {
+            metadata: {
+                listing_id: @listing.id
+            }
+        },
+        success_url: 'http://localhost:3000',          #MUST be edited to revert back to the correct listing page.
         cancel_url: 'http://localhost:3000/cancel',    #Needs to be changed before Heroku
     ) 
     @stripe_session_id = stripe_session.id
@@ -66,9 +72,10 @@ class ListingsController < ApplicationController
         redirect_to listing_path
     end  
         
-    def payment
-        p params
-    end
+    #def payment
+    #    #p params["id"]
+    #end
+
     private
     def set_listing
         id = params[:id]
