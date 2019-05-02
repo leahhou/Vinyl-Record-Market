@@ -10,4 +10,9 @@ id = params[:id]
 @user = User.find(id)
 end
 
+def userprofile
+id = current_user.id
+@user = User.find(id)
+end
+
 end

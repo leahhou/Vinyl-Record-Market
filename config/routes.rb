@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   get "/users", to: "users#index", as: "users"
   # add user prefix to direct to individual profile
+  get "users/my_profile", to: "users#userprofile", as: "my_profile"
   get "/users/:id", to: "users#show", as: "user"
+  
   
 end
 
