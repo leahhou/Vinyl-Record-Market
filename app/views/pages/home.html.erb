@@ -11,6 +11,11 @@ Most 3 Recent Records
 <%  @home_listings.each do |listing| %>
 <ul>
 <li>
+    <% if listing.cover.attached?%>
+    <%= image_tag listing.cover %>
+    <%else%>
+    <%= image_tag 'coverart' %>
+    <%end%>
     Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%>
 </li>
 </ul>
