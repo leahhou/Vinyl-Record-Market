@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/listings/new", to: "listings#new", as: "new_listing"
   get "/listings/:id", to: "listings#show", as: "listing"
   get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
+  get "/listings/:id/more", to: "listings#more"
   put "/listings/:id", to: "listings#update"
   patch "/listings/:id", to: "listings#update"
   delete "/listings/:id", to: "listings#destroy"

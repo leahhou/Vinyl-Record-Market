@@ -1,11 +1,14 @@
 class ListingsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
-    before_action :set_listing, only: [:show, :edit, :update, :destroy]   
+    before_action :set_listing, only: [:show, :edit, :update, :destroy, :more]   
     before_action :authorize_user, only: [:edit, :update, :destroy] 
     before_action :set_genre_format_and_condition, only: [:new, :edit]
     before_action :set_genre_format_and_condition, only: [:new, :edit]
     skip_before_action :verify_authenticity_token, only: [:payment]
+    before_action :set_genre_format_and_condition, only: [:new, :edit, :more]
 
+    def more 
+    end 
     def index 
         #shows all listings
         @listings = Listing.all
@@ -20,7 +23,6 @@ class ListingsController < ApplicationController
         else
             redirect_to listing_path(@listing.id)
         end
-        
     end  
 
     def new 
@@ -29,6 +31,7 @@ class ListingsController < ApplicationController
     end  
 
     def show
+        @listing[:price]= @listing[:price]*100
     stripe_session = Stripe::Checkout::Session.create(
         #customer_email: @user.email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
@@ -49,7 +52,7 @@ class ListingsController < ApplicationController
     def update 
         #updates the current listing
         @listing = current_user.listings.find(params[:id])
-        @listing.update(listins_params)
+        @listing.update(listing_params)
         redirect_to listing_path(@listing.id)
     end
 
@@ -85,6 +88,7 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, :genre_id)
+        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, { genres_listing_attributes: [:genre_id] })
     end
+
 end
