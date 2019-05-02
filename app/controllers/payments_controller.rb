@@ -7,9 +7,14 @@ class PaymentsController < ApplicationController
         payment = Stripe::PaymentIntent.retrieve(payment_id)
         listing_id = payment.metadata.listing_id
         #Garret Knows Cool shit
-        p "listing id " + listing_id
+        p "listing id " + listing_id 
         p "user id " + user_id
+        p "payment id " + payment_id
+        
+        Purchase.create(user_id: user_id, listing_id: listing_id, payment_id: payment_id)
         render json: ""
+
+        
     end
 
     def success
