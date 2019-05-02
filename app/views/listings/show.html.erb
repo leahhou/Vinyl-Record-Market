@@ -2,6 +2,8 @@
 <button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <p>Album Cover Img</p>
 
+
+
 <div>
 <p>Album:<%= @listing.title%></p>
 <p>Artist:<%= @listing.artist%></p>
@@ -38,10 +40,6 @@
 <%# <p>Genre:<%= @listing.genre_id%>
 <p>Album imges</p>
 <button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-<button > Contact <%= User.find(@listing.user_id)[:username]%></button>
-</div>
-
-
 <script>                                                                            //This is the "dirty way" -Garret 2019 
 document.getElementById("stripePayment").addEventListener("click", function() {
 var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
@@ -56,3 +54,7 @@ var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>'
 </script>
 
 <%= javascript_include_tag "payment_button"%>
+
+<button > Contact <%= User.find(@listing.user_id)[:username]%></button>
+</div>
+
