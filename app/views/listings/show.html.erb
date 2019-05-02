@@ -1,4 +1,5 @@
 
+<button id="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <p>Album Cover Img</p>
 
 <div>
@@ -41,7 +42,7 @@
 </div>
 
 
-<script>
+<script>                                                                            //This is the "dirty way" -Garret 2019 
 document.getElementById("stripePayment").addEventListener("click", function() {
 var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
     stripe.redirectToCheckout({
@@ -55,5 +56,3 @@ var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>'
 </script>
 
 <%= javascript_include_tag "payment_button"%>
-
-
