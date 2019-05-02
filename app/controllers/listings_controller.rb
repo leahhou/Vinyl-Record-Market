@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
             render "new"
         else
             @listing.genre_ids=params[:listing][:genre_id]
-            redirect_to listing_path(@listing.id)
+            redirect_to continue_listing_path(@listing.id)
         end
     end  
 
@@ -61,7 +61,13 @@ class ListingsController < ApplicationController
         #updates the current listing
         @listing = current_user.listings.find(params[:id])
         @listing.update(listing_params)
-        redirect_to listing_path(@listing.id)
+        if @listing.errors.any?
+            set_genre_format_and_condition
+            render "new"
+        else
+            @listing.genre_ids=params[:listing][:genre_id]
+            redirect_to listing_path(@listing.id)
+        end
     end
 
     def edit 
@@ -97,7 +103,7 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, { genres_listing_attributes: [:genre_id] })
+        params.require(:listing).permit(:artist, :title, :year, :format_id, :price, :condition, :description, :cover, { genres_listing_attributes: [:genre_id] })
     end
 
 end
