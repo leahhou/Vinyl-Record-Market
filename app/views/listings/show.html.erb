@@ -25,6 +25,13 @@
 <button > Contact <%= User.find(@listing.user_id)[:username]%></button>
 <%# need to make status dynamic %>
 
+<% @purchases.each do |purchase| %>
+  <% if params[:id].to_i == purchase[:listing_id].to_i %>
+  <p><%= "Status: Sold"%></p>
+  <% else %>
+  <p><%= "Status: Available"%></p>
+  <% end %>
+<% end %>
 
 </div>
 
@@ -67,7 +74,5 @@ for(let i = 0; i < elements.length; i++) {
 </script>
 
 <%= javascript_include_tag "payment_button"%>
-
-<button > Contact <%= User.find(@listing.user_id)[:username]%></button>
 </div>
 
