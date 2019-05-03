@@ -1,4 +1,5 @@
 <h1>Edit Listing</h1>
 
-
+<%= render "form1", listing: @listing, conditions: @conditions, formats: @formats, genres: @genres, :url=>"change" %>
     
+<%# url => "change" sign url to go to change method, which hook edit view to change method %>

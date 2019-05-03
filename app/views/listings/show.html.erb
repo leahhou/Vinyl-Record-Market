@@ -2,7 +2,7 @@
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <p>Album Cover Img</p>
 
-
+<%= link_to "edit album ", edit_listing_path(@listing.id) %>
 
 <div>
 <%if @listing.cover.attached?%>
