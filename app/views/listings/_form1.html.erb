@@ -1,4 +1,5 @@
-<%= form_with model: listing, local: true do |form|%>
+<%= form_with model: listing, url: {action: url},  local: true do |form|%>
+<%# url is signed to different method depends on which method url is handling. refer to new/edit/more.html.erb for more info %>
     <div>
         <%= form.label :artist %>
         <%= form.text_field :artist %>

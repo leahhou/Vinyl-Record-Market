@@ -6,16 +6,20 @@ class ListingsController < ApplicationController
     before_action :set_genre_format_and_condition, only: [:new, :edit]  
     before_action :set_genre_format_and_condition, only: [:new, :edit, :more]
     #skip_before_action :verify_authenticity_token, only: [:payment]
+    
 
+    #more method render 2nd part of new/edit form
     def more 
     end 
+
     def index 
         #shows all listings
         @listings = Listing.all
     end
-
+    
+    #creat method handle 1st part of new form
     def create 
-        #create new listing
+        #create new listing (create first part of form)
         @listing = current_user.listings.create(listing_params)
         if @listing.errors.any?
             set_genre_format_and_condition
@@ -25,6 +29,18 @@ class ListingsController < ApplicationController
             redirect_to continue_listing_path(@listing.id)
         end
     end  
+    
+    def change
+        #create new listing
+        @listing = current_user.listings.create(listing_params)
+        if @listing.errors.any?
+            set_genre_format_and_condition
+            render "edit"
+        else
+            @listing.genre_ids=params[:listing][:genre_id]
+            redirect_to continue_listing_path(@listing.id)
+        end
+    end 
 
     def new 
         #shows form for creating a new listing
@@ -57,11 +73,13 @@ class ListingsController < ApplicationController
     @stripe_session_id = stripe_session.id
     #view a single listing 
     end  
-
+    
+    #update method handle 2st part of new/edit form
     def update 
-        #updates the current listing
+        #updates the current listing (second part of form)
         @listing = current_user.listings.find(params[:id])
         @listing.update(listing_params)
+        p "we are here"
         if @listing.errors.any?
             set_genre_format_and_condition
             render "new"
@@ -70,7 +88,8 @@ class ListingsController < ApplicationController
             redirect_to listing_path(@listing.id)
         end
     end
-
+    
+    #edit method render 1st part of edit form"
     def edit 
         #show the edit form 
     end  
