@@ -10,6 +10,7 @@
 <%else%>
 <%= image_tag 'coverart' %>
 <%end%>
+
 <p>Album:<%= @listing.title%></p>
 <p>Artist:<%= @listing.artist%></p>
 <p>Genres:
@@ -19,19 +20,20 @@
 </ul>
 <% end %>
 </p>
+
 <p>Owner: <%= User.find(@listing.user_id)[:username]%></p>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%# need to make status dynamic %>
 <button > Contact <%= User.find(@listing.user_id)[:username]%></button>
 <%# need to make status dynamic %>
 
-<% @purchases.each do |purchase| %>
-  <% if params[:id].to_i == purchase[:listing_id].to_i %>
+
+  <% if @purchase%>
   <p><%= "Status: Sold"%></p>
   <% else %>
   <p><%= "Status: Available"%></p>
   <% end %>
-<% end %>
+
 
 </div>
 
