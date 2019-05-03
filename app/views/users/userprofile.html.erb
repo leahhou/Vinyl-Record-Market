@@ -4,20 +4,23 @@
 <%else%>
 <%=image_tag "blank"%>
 <%end%>
-
 <div>
 My Info
 <p>username: <%= current_user[:username] %> </p>
 <p>location: <%= current_user[:location] %> </p>
 </div>
 
-<div>
-My Current Listings
+<h1> My Current Listings </h1>
 <%# need to verify when new form listing is working! %>
-<% for listing in current_user.listings %>
-<%= listing[:album] %><% link_to "listing[:album]", listing_path(listing.id) %>
+ <% for listing in @user_listings %>
+    <% if listing.cover.attached?%>
+    <%= image_tag listing.cover %>
+    <%else%>
+    <%= image_tag 'coverart' %>
+    <%end%>
+<div> - <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </div>
 <% end %>
-</div>
+
 
 <div>
 My Sold Listings

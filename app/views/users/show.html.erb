@@ -14,8 +14,15 @@
 <div>
 <%=@user.username%>'s Listings
 <%# need to verify when new form listing is working! %>
-<% for listing in @user.listings %>
-<%= listing[:album] %><% link_to "listing[:album]", listing_path(listing.id) %>
+</div>
+
+<%for listing in @user_listings do %>
+    <% if listing.cover.attached?%>
+    <%= image_tag listing.cover %>
+    <%else%>
+    <%= image_tag 'coverart' %>
+    <%end%>
+<div> - <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </div>
 <% end %>
 </div>
 

@@ -2,12 +2,15 @@
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <p>Album Cover Img</p>
 
+
+
 <div>
 <%if @listing.cover.attached?%>
 <%= image_tag @listing.cover %>
 <%else%>
 <%= image_tag 'coverart' %>
 <%end%>
+
 <p>Album:<%= @listing.title%></p>
 <p>Artist:<%= @listing.artist%></p>
 <p>Genres:
@@ -17,21 +20,28 @@
 </ul>
 <% end %>
 </p>
-<p>Owner: <%= User.find(@listing.user_id)[:username]%></p>
+
+<p>Owner: <%= @listing.user.username%></p>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%# need to make status dynamic %>
-<button > Contact <%= User.find(@listing.user_id)[:username]%></button>
+<button > Contact <%= @listing.user.username%></button>
 <%# need to make status dynamic %>
-<p>Status: Available</p> 
+
+
+  <% if @purchase%>
+  <p><%= "Status: Sold"%></p>
+  <% else %>
+  <p><%= "Status: Available"%></p>
+  <% end %>
 
 
 </div>
 
 <div>
 <p>Year:<%= @listing.year%></p>
-<p>Format:<%= @listing.format[:name]%></p>
+<p>Format:<%= @listing.format.name%></p>
 <p>Album Condition: <%= @listing.condition%></p>
-<p>Location: <%= current_user.location%> </p>
+<p>Location: <%= @listing.user.location%> </p>
 </div>
 
 <div>
@@ -43,11 +53,12 @@
 <%# <p>Genre:<%= @listing.genre_id%>
 <p>Album imges</p>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-<button > Contact <%= User.find(@listing.user_id)[:username]%></button>
+<button > Contact <%= @listing.user.username%></button>
 </div>
 
 
 <script> //This is the "dirty way" -Garret 2019 
+
 let elements = document.querySelectorAll("[data-stripe='stripePayment']");
 
 for(let i = 0; i < elements.length; i++) {
@@ -66,3 +77,5 @@ for(let i = 0; i < elements.length; i++) {
 </script>
 
 <%= javascript_include_tag "payment_button"%>
+</div>
+
