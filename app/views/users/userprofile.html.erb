@@ -12,7 +12,7 @@ My Info
 
 <h1> My Current Listings </h1>
 <%# need to verify when new form listing is working! %>
- <% for listing in current_user.listings %>
+ <% for listing in @user_listings %>
     <% if listing.cover.attached?%>
     <%= image_tag listing.cover %>
     <%else%>
