@@ -21,10 +21,10 @@
 <% end %>
 </p>
 
-<p>Owner: <%= User.find(@listing.user_id)[:username]%></p>
+<p>Owner: <%= @listing.user.username%></p>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%# need to make status dynamic %>
-<button > Contact <%= User.find(@listing.user_id)[:username]%></button>
+<button > Contact <%= @listing.user.username%></button>
 <%# need to make status dynamic %>
 
 
@@ -39,9 +39,9 @@
 
 <div>
 <p>Year:<%= @listing.year%></p>
-<p>Format:<%= @listing.format[:name]%></p>
+<p>Format:<%= @listing.format.name%></p>
 <p>Album Condition: <%= @listing.condition%></p>
-<p>Location: <%= current_user.location%> </p>
+<p>Location: <%= @listing.user.location%> </p>
 </div>
 
 <div>
@@ -53,7 +53,7 @@
 <%# <p>Genre:<%= @listing.genre_id%>
 <p>Album imges</p>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-<button > Contact <%= User.find(@listing.user_id)[:username]%></button>
+<button > Contact <%= @listing.user.username%></button>
 </div>
 
 
