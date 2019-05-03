@@ -1,0 +1,18 @@
+<h1></h1>
+
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<% @results.each do |result| %>
+<ul>
+<li>
+<p>Album: <%= result.title %> | Artist: <%= result.artist%> | <%= link_to "go to album ", listing_path(result.id) %></p>
+</li>
+</ul>
+<% end %>

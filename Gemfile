@@ -64,3 +64,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.6"
 
 gem "faker", "~> 1.9"
+
+gem "aws-sdk-s3", "~> 1.36"
+
+gem "stripe", "~> 4.16"
+
+gem 'money-rails'
+
+gem "ultrahook", "~> 0.1.5"
+
+gem "ransack", "~> 2.1"
