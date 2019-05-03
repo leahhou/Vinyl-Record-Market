@@ -32,13 +32,18 @@ class ListingsController < ApplicationController
     end  
 
     def show
+        if current_user 
+            client_id = current_user.id
+        else 
+            client_id = nil 
+        end 
         @listing[:price]= @listing[:price]*100
         @listing_genres = @listing.genres
         @purchase = Purchase.find_by(listing_id: @listing.id)
     stripe_session = Stripe::Checkout::Session.create(
         #customer_email: @user.email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
-        client_reference_id: current_user.id,
+        client_reference_id: client_id,
         line_items: [{
         amount: @listing.price,
         name: @listing.title,                          #Edit this to include more information fields
