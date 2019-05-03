@@ -1,9 +1,7 @@
 class ListingsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     before_action :set_listing, only: [:show, :edit, :update, :destroy, :more]   
-    before_action :authorize_user, only: [:edit, :update, :destroy] 
-    before_action :set_genre_format_and_condition, only: [:new, :edit]
-    before_action :set_genre_format_and_condition, only: [:new, :edit]  
+    before_action :authorize_user, only: [:edit, :update, :destroy]  
     before_action :set_genre_format_and_condition, only: [:new, :edit, :more]
     #skip_before_action :verify_authenticity_token, only: [:payment]
     
@@ -11,10 +9,13 @@ class ListingsController < ApplicationController
     #more method render 2nd part of new/edit form
     def more 
     end 
-
-    def index 
+   
+    def index
         #shows all listings
         @listings = Listing.all
+        
+        @q = Listing.ransack(params[:q])
+        @results = @q.result(distinct: true)
     end
     
     #creat method handle 1st part of new form
@@ -48,13 +49,23 @@ class ListingsController < ApplicationController
     end  
 
     def show
+        if current_user 
+            client_id = current_user.id
+            user_email = current_user.email
+        else 
+            client_id = nil
+            user_email = nil 
+        end 
+
+
         @listing[:price]= @listing[:price]*100
         @listing_genres = @listing.genres
         @purchase = Purchase.find_by(listing_id: @listing.id)
-    stripe_session = Stripe::Checkout::Session.create(
-        #customer_email: @user.email,                  #This will be used for Stripe autofillS
+    
+        stripe_session = Stripe::Checkout::Session.create(
+        customer_email: user_email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
-        client_reference_id: current_user.id,
+        client_reference_id: client_id,
         line_items: [{
         amount: @listing.price,
         name: @listing.title,                          #Edit this to include more information fields
@@ -71,6 +82,7 @@ class ListingsController < ApplicationController
         cancel_url: 'http://localhost:3000/cancel',    #Needs to be changed before Heroku
     ) 
     @stripe_session_id = stripe_session.id
+
     #view a single listing 
     end  
     

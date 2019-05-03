@@ -72,3 +72,5 @@ gem "stripe", "~> 4.16"
 gem 'money-rails'
 
 gem "ultrahook", "~> 0.1.5"
+
+gem "ransack", "~> 2.1"
