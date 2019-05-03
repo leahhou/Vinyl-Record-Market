@@ -11,6 +11,9 @@ class ListingsController < ApplicationController
     def index
         #shows all listings
         @listings = Listing.all
+        
+        @q = Listing.ransack(params[:q])
+        @results = @q.result(distinct: true)
     end
 
     def create 
@@ -33,15 +36,19 @@ class ListingsController < ApplicationController
     def show
         if current_user 
             client_id = current_user.id
+            user_email = current_user.email
         else 
-            client_id = nil 
+            client_id = nil
+            user_email = nil 
         end 
+
+
         @listing[:price]= @listing[:price]*100
         @listing_genres = @listing.genres
         @purchase = Purchase.find_by(listing_id: @listing.id)
     
         stripe_session = Stripe::Checkout::Session.create(
-        #customer_email: @user.email,                  #This will be used for Stripe autofillS
+        customer_email: user_email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
         client_reference_id: client_id,
         line_items: [{
