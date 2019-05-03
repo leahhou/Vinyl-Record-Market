@@ -9,7 +9,8 @@ class ListingsController < ApplicationController
 
     def more 
     end 
-    def index 
+   
+    def index
         #shows all listings
         @listings = Listing.all
     end
