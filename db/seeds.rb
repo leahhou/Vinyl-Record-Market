@@ -16,14 +16,3 @@ formats = ["2LP", "LP", "10\"", "8\"", "7\""]
     genres.each do |genre|
           Genre.create(name: genre)
     end
-
-
-formats = ["2LP", "LP", "10\"", "8\"", "7\""]
-     formats.each do |format|   
-        Format.create(name: format)
-        end 
-
-    genres = ["Rock", "Pop", "Hip-Hop", "Classical", "Alternative", "Punk", "Metal", "Country"]
-    genres.each do |genre|
-          Genre.create(name: genre)
-    end

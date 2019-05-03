@@ -34,7 +34,7 @@ class ListingsController < ApplicationController
     def show
         @listing[:price]= @listing[:price]*100
         @listing_genres = @listing.genres
-        @purchases = Purchase.all
+        @purchase = Purchase.find_by(listing_id: @listing.id)
     stripe_session = Stripe::Checkout::Session.create(
         #customer_email: @user.email,                  #This will be used for Stripe autofillS
         payment_method_types: ['card'],
