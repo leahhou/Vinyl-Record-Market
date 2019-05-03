@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [:show]
 before_action :set_user_listings, only: [:show]
-def index 
+def index   
 @users = User.all
+
+@q = User.ransack(params[:q])
+@results = @q.result(distinct: true)
 end 
 
 def show 
