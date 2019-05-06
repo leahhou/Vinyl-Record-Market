@@ -85,12 +85,15 @@ class ListingsController < ApplicationController
     
     # Needs to be assessed. If nothing is returned, then remove + " (band)"
     
-    artist = Listing.find(@listing.id).artist + " (band)"
-    if artist = "status 404"
-        artist = Listing.find(@listing.id).artist
+    artist = Listing.find(@listing.id).artist + " (band)"         #include " (band)" to avoid Muse and birthday party issue 
+    @page = Wikipedia.find artist                                 #Init @page as the wiki page for the artist
+
+    if @page.categories == nil                                               #If the page does not exist then do this
+        artist = Listing.find(@listing.id).artist                 #Include the Muse and Birthday party problems
+        @page = Wikipedia.find artist                             #Init @page as the wiki page for the artist
     end
 
-    @page = Wikipedia.find artist
+    
     @artist_image_url = @page.main_image_url
     #view a single listing 
     end  

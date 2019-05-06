@@ -45,7 +45,7 @@
 </div>
 
 <div>
-<p>Description:<%= @listing.description%></p>
+<p>Description: <%= @listing.description%></p>
 </div>
 
 <div>
@@ -84,14 +84,13 @@ for(let i = 0; i < elements.length; i++) {
 <%= javascript_include_tag "payment_button"%>
 </div>
 
-<%# @page.image_urls[2] %>
 
   <% if @artist_image_url == nil %>  <%# ALL good => Use main image %>
   <% else %>
     <img src=<%= @artist_image_url %> alt="An image of the band sourced from wikipedia">
   <% end%>
 
-<%# @page.image_urls[2] %>
+
 <%= @page.summary %>
 
 
