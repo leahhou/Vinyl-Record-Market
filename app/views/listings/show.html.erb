@@ -56,8 +56,10 @@
 <%# need to fix genre dynamic display %>
 <%# <p>Genre:<%= @listing.genre_id%>
 <p>Album imges</p>
+<% if (current_user.id != @listing_owner.id)%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <button > Contact <%= @listing.user.username%></button>
+<%end %>
 </div>
 
 
