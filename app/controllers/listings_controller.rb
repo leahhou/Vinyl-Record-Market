@@ -49,6 +49,7 @@ class ListingsController < ApplicationController
     end  
 
     def show
+        @listing_owner = @listing.user
         if current_user 
             client_id = current_user.id
             user_email = current_user.email
