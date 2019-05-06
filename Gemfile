@@ -74,3 +74,5 @@ gem 'money-rails'
 gem "ultrahook", "~> 0.1.5"
 
 gem "ransack", "~> 2.1"
+
+gem 'wikipedia-client', '~> 1.10'

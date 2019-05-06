@@ -11,8 +11,8 @@
 <%= image_tag 'coverart' %>
 <%end%>
 
-<p>Album:<%= @listing.title%></p>
-<p>Artist:<%= @listing.artist%></p>
+<p>Album: <%= @listing.title%></p>
+<p>Artist: <%= @listing.artist%></p>
 <p>Genres:
 <% @listing_genres.each do |genre|%>
 <ul>
@@ -42,14 +42,14 @@
 </div>
 
 <div>
-<p>Year:<%= @listing.year%></p>
-<p>Format:<%= @listing.format.name%></p>
+<p>Year: <%= @listing.year%></p>
+<p>Format: <%= @listing.format.name%></p>
 <p>Album Condition: <%= @listing.condition%></p>
 <p>Location: <%= @listing.user.location%> </p>
 </div>
 
 <div>
-<p>Description:<%= @listing.description%></p>
+<p>Description: <%= @listing.description%></p>
 </div>
 
 <div>
@@ -89,4 +89,14 @@ for(let i = 0; i < elements.length; i++) {
 
 <%= javascript_include_tag "payment_button"%>
 </div>
+
+
+  <% if @artist_image_url == nil %>  <%# ALL good => Use main image %>
+  <% else %>
+    <img src=<%= @artist_image_url %> alt="An image of the band sourced from wikipedia">
+  <% end%>
+
+
+<%= @page.summary %>
+
 
