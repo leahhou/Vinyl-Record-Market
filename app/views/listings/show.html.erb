@@ -1,5 +1,7 @@
 
+<%unless listing_owner(@listing)%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+<%end%>
 <p>Album Cover Img</p>
 
 <%= link_to "edit album ", edit_listing_path(@listing.id) %>
@@ -11,21 +13,26 @@
 <%= image_tag 'coverart' %>
 <%end%>
 
-<p>Album:<%= @listing.title%></p>
-<p>Artist:<%= @listing.artist%></p>
+<p>Album: <%= @listing.title%></p>
+<p>Artist: <%= @listing.artist%></p>
 <p>Genres:
 <% @listing_genres.each do |genre|%>
 <ul>
 <li><%= genre[:name]%></li>
 </ul>
-<% end %>
+<% end %> 
 </p>
 
-<p>Owner: <%= @listing.user.username%></p>
+<%# listing_owner is a helper method defined in /helpers/application_helper.rb %>
+<%unless listing_owner(@listing)%>
+<p>Listed by: <%= link_to @listing_owner.username, user_path(@listing_owner.id) %></p>
+<% if @purhcase != nil%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+<%end%>
 <%# need to make status dynamic %>
-<button > Contact <%= @listing.user.username%></button>
+<%= link_to "Contact #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post %>
 <%# need to make status dynamic %>
+<%end%>
 
 
   <% if @purchase%>
@@ -38,22 +45,26 @@
 </div>
 
 <div>
-<p>Year:<%= @listing.year%></p>
-<p>Format:<%= @listing.format.name%></p>
+<p>Year: <%= @listing.year%></p>
+<p>Format: <%= @listing.format.name%></p>
 <p>Album Condition: <%= @listing.condition%></p>
 <p>Location: <%= @listing.user.location%> </p>
 </div>
 
 <div>
-<p>Description:<%= @listing.description%></p>
+<p>Description: <%= @listing.description%></p>
 </div>
 
 <div>
 <%# need to fix genre dynamic display %>
 <%# <p>Genre:<%= @listing.genre_id%>
 <p>Album imges</p>
+
+
+<% unless listing_owner(@listing)%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <button > Contact <%= @listing.user.username%></button>
+<%end %>
 </div>
 
 
@@ -83,4 +94,14 @@ for(let i = 0; i < elements.length; i++) {
 
 <%= javascript_include_tag "payment_button"%>
 </div>
+
+
+  <% if @artist_image_url == nil %>  <%# ALL good => Use main image %>
+  <% else %>
+    <img src=<%= @artist_image_url %> alt="An image of the band sourced from wikipedia">
+  <% end%>
+
+
+<%= @page.summary %>
+
 

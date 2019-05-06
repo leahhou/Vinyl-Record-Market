@@ -1,8 +1,11 @@
 <%= link_to "Return Home", root_path %>
 <%= link_to "Browse all album", listings_path %>
 <% if current_user%>
+ <%= link_to 'Messages', conversations_path %>
 <%= link_to "Go to Profile", my_profile_path %>
 <%= link_to "create a new listing", new_listing_path %>
+<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
 <%else%>
+ <%= link_to 'Sign in', new_user_session_path %>
 <%=link_to "Sign up", new_user_registration_path%>
 <%end%>

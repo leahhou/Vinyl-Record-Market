@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/index'
+  get 'conversations/index'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/", to: "pages#home", as: "root"
@@ -28,6 +30,9 @@ Rails.application.routes.draw do
   get "users/my_profile", to: "users#userprofile", as: "my_profile"
   get "/users/:id", to: "users#show", as: "user"
   
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
   
 end
 
