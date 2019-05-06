@@ -50,6 +50,7 @@ class ListingsController < ApplicationController
 
     def show
         @listing_owner = @listing.user
+        
         if current_user 
             client_id = current_user.id
             user_email = current_user.email
@@ -86,11 +87,11 @@ class ListingsController < ApplicationController
     
     # Needs to be assessed. If nothing is returned, then remove + " (band)"
     
-    artist = Listing.find(@listing.id).artist + " (band)"         #include " (band)" to avoid Muse and birthday party issue 
+    artist = @listing.artist + " (band)"         #include " (band)" to avoid Muse and birthday party issue 
     @page = Wikipedia.find artist                                 #Init @page as the wiki page for the artist
 
     if @page.categories == nil                                               #If the page does not exist then do this
-        artist = Listing.find(@listing.id).artist                 #Include the Muse and Birthday party problems
+        artist = @listing.artist                 #Include the Muse and Birthday party problems
         @page = Wikipedia.find artist                             #Init @page as the wiki page for the artist
     end
 

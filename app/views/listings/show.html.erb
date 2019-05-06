@@ -1,5 +1,7 @@
 
+<%unless listing_owner(@listing)%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+<%end%>
 <p>Album Cover Img</p>
 
 <%= link_to "edit album ", edit_listing_path(@listing.id) %>
@@ -21,7 +23,8 @@
 <% end %> 
 </p>
 
-<%if current_user.id != @listing_owner.id%>
+<%# listing_owner is a helper method defined in /helpers/application_helper.rb %>
+<%unless listing_owner(@listing)%>
 <p>Listed by: <%= link_to @listing_owner.username, user_path(@listing_owner.id) %></p>
 <% if @purhcase != nil%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
@@ -56,7 +59,9 @@
 <%# need to fix genre dynamic display %>
 <%# <p>Genre:<%= @listing.genre_id%>
 <p>Album imges</p>
-<% if (current_user.id != @listing_owner.id)%>
+
+
+<% unless listing_owner(@listing)%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <button > Contact <%= @listing.user.username%></button>
 <%end %>
