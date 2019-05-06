@@ -82,7 +82,8 @@ class ListingsController < ApplicationController
         cancel_url: 'http://localhost:3000/cancel',    #Needs to be changed before Heroku
     ) 
     @stripe_session_id = stripe_session.id
-
+    artist = Listing.find(@listing.id).artist + " (band)"
+    @page = Wikipedia.find artist
     #view a single listing 
     end  
     
