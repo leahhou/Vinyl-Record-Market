@@ -95,6 +95,7 @@ class ListingsController < ApplicationController
 
     
     @artist_image_url = @page.main_image_url
+    
     #view a single listing 
     end  
     
