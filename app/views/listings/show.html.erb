@@ -20,9 +20,12 @@
 </ul>
 <% end %> 
 </p>
+
 <%if current_user.id != @listing_owner.id%>
 <p>Listed by: <%= link_to @listing_owner.username, user_path(@listing_owner.id) %></p>
+<% if @purhcase != nil%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+<%end%>
 <%# need to make status dynamic %>
 <%= link_to "Contact #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post %>
 <%# need to make status dynamic %>
