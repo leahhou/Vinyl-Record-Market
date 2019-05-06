@@ -91,6 +91,7 @@ class ListingsController < ApplicationController
     end
 
     @page = Wikipedia.find artist
+    @artist_image_url = @page.main_image_url
     #view a single listing 
     end  
     
