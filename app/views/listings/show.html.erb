@@ -18,14 +18,15 @@
 <ul>
 <li><%= genre[:name]%></li>
 </ul>
-<% end %>
+<% end %> 
 </p>
-
-<p>Owner: <%= @listing.user.username%></p>
+<%if current_user.id != @listing_owner.id%>
+<p>Listed by: <%= link_to @listing_owner.username, user_path(@listing_owner.id) %></p>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%# need to make status dynamic %>
-<button > Contact <%= @listing.user.username%></button>
+<%= link_to "Contact #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post %>
 <%# need to make status dynamic %>
+<%end%>
 
 
   <% if @purchase%>
