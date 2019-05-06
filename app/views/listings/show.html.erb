@@ -84,6 +84,9 @@ for(let i = 0; i < elements.length; i++) {
 <%= javascript_include_tag "payment_button"%>
 </div>
 
-<img src=<%= @page.image_urls[2] %> alt="Italian Trulli">
+<%# @page.image_urls[2] %>
+
+
+<img src=<%= @page.main_image_url %> alt="An image of the band sourced from wikipedia">
 <%# @page.image_urls[2] %>
 <%= @page.summary %>
