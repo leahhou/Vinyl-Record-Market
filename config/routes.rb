@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   # add user prefix to direct to individual profile
   get "users/my_profile", to: "users#userprofile", as: "my_profile"
   get "/users/:id", to: "users#show", as: "user"
+
+  resources :favorite_listings, only: [:create, :destroy]
+
   
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
