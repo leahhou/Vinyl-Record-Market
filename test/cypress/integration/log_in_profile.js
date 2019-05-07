@@ -6,5 +6,5 @@ describe('Rails Log In', function() {
 
     it("see profile", function() {                
         cy.contains("Go to Profile").click(); //click "Go to Profile" button to go to personal profile
-    });       
+    });
 });
