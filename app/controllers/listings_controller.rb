@@ -123,7 +123,7 @@ class ListingsController < ApplicationController
     def destroy 
         #deletes current listings
         @listing.destroy
-        redirect_to listing_path
+        redirect_to my_profile_path
     end  
         
     #def payment
