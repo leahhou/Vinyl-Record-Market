@@ -2,7 +2,6 @@
 <%unless listing_owner(@listing)%>
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%end%>
-<p>Album Cover Img</p>
 
 <%= link_to "edit album ", edit_listing_path(@listing.id) %>
 
@@ -16,9 +15,9 @@
 <p>Album: <%= @listing.title%></p>
 <p>Artist: <%= @listing.artist%></p>
 <p>Genres:
-<% @listing_genres.each do |genre|%>
+<% @listing.genres.each do |genre|%>
 <ul>
-<li><%= genre[:name]%></li>
+<li><%= genre.name%></li>
 </ul>
 <% end %> 
 </p>
@@ -30,7 +29,7 @@
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%end%>
 <%# need to make status dynamic %>
-<%= link_to "Contact #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post %>
+<%= link_to "Contact #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post  if signed_in?%>
 <%# need to make status dynamic %>
 <%end%>
 

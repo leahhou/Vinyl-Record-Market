@@ -61,7 +61,6 @@ class ListingsController < ApplicationController
 
 
         @listing[:price]= @listing[:price]*100
-        @listing_genres = @listing.genres
         @purchase = Purchase.find_by(listing_id: @listing.id)
     
         stripe_session = Stripe::Checkout::Session.create(
