@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 2019_05_07_020344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.integer "favourites_count"
     t.integer "favorite_count", default: 0
     t.index ["format_id"], name: "index_listings_on_format_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
