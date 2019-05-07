@@ -11,23 +11,6 @@ formats = ["2LP", "LP", "10\"", "8\"", "7\""]
         end 
 
 
-<<<<<<< HEAD
-if User.count == 0
-    (1..10).each do |i|
-    user = User.new(
-        username: Faker::Name.unique.name,
-        email: Faker::Internet.free_email,
-        password: "cheese",
-        password_confirmation: "cheese",
-        location: Faker::University.name
-    )
-    user.save!(validate: false)
-    p "Created #{i} Kickass users"
-    p user
-    end
-end
-=======
->>>>>>> dev
 
     genres = ["Rock", "Pop", "Hip-Hop", "Classical", "Alternative", "Punk", "Metal", "Country"]
     genres.each do |genre|
