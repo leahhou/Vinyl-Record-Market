@@ -32,11 +32,12 @@ describe('Rails Listing CRUD', function() {
 
     it("update a listing", function() {
         
-         cy.visit("/"); 
+        cy.visit("/"); 
 
-         cy.contains("go to album").click()
+        cy.contains("go to album").click()
 
-         cy.contains("edit album").click(); 
+        cy.contains("edit album").click(); 
+
         cy.get("[name='listing[artist]']").type("The Beatles"); 
      
         cy.get("[name='listing[title]']").type("Hey Jude"); 
@@ -55,16 +56,13 @@ describe('Rails Listing CRUD', function() {
         cy.contains("Update Listing").click(); // click "update listing" button to submit 2nd part of the 
 
     });
-    // it("delete a listing", function() {
-        
-    //     cy.visit("/users/sign_in"); // go to sign up page correctly
-    
-    //     cy.get("[name='user[login]']").type("leah13"); // select username field and type in leah
-        
-    //     cy.get("[name='user[password]']").type("123456"); // select password field and type in password
 
-    //     cy.get("[name='commit']").click(); //click "sign up" button to sumbit registration form
-        
-    //     cy.contains("Signed in successfully."); //automatically redirect to home and show successfully log in
-    // });
+    it("delete a listing", function() {
+        cy.visit("/"); 
+
+        cy.contains("go to album").click()
+
+        cy.contains("delete album").click(); 
+
+    });
 });

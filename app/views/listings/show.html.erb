@@ -3,7 +3,13 @@
 <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
 <%end%>
 
-<%= link_to "edit album ", edit_listing_path(@listing.id) %>
+
+<div>
+<% if current_user %>
+  <%= link_to "edit album ", edit_listing_path(@listing.id) %>
+  <%= link_to "delete album ", listing_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
 
 <div>
 <%if @listing.cover.attached?%>
