@@ -1,0 +1,35 @@
+<h1>Inbox</h1>
+
+<ul> 
+    <%if @conversations%>
+  <% @conversations.each do |conversation| %>
+    <li>
+      <%= link_to conversation.recipient(current_user).username, conversation_messages_path(conversation) %>
+      <% if !conversation.unread_message_count(current_user).zero? %>
+        (<%= conversation.unread_message_count(current_user) %>)
+      <% end %>
+    </li>
+  <% end %>
+  <%end%>
+</ul>
+
+
+
+<ul>
+  <% @messages.each do |message| %>
+    <% if message.body %>
+      <li>
+        <h4><%= message.user.username %></h4>
+        <p><%= message.body %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= form_for [@conversation, @message] do |f| %>
+  <div class="field">
+    <%= f.text_area :body, placeholder: "Your message" %>
+  </div>
+
+  <%= f.submit "Send" %>
+<% end %>

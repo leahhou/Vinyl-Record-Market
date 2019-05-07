@@ -1,4 +1,5 @@
-<%= form_with model: listing, local: true do |form|%>
+<%= form_with model: listing, url: {action: url},  local: true do |form|%>
+<%# url is signed to different method depends on which method url is handling. refer to new/edit/more.html.erb for more info %>
     <div>
         <%= form.label :artist %>
         <%= form.text_field :artist %>
@@ -8,12 +9,14 @@
         <%= form.label :title %>
         <%= form.text_field :title %>
     </div>
-    <p>Genre</p>
 
+
+    <div>
         <%= form.label :format_id %>
         <%= form.select(:format_id, @formats.map{|f| [f.name, f.id]}) %>
     </div>
-
+    
+    
     <div>
         <%= form.label :year %>
         <%= form.text_field :year %>
@@ -21,7 +24,7 @@
 
     <div>
         <%= form.label :price %>
-        AUD$<%= form.text_field :price %>
+        AUD$<%= form.text_field :price %> (intergar only)
     </div>
 
     <p>Album Condition</p>

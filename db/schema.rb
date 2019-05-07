@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_30_053657) do
+ActiveRecord::Schema.define(version: 2019_05_07_020344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,23 @@ ActiveRecord::Schema.define(version: 2019_04_30_053657) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "favorited_type"
+    t.bigint "favorited_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited_type_and_favorited_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "formats", force: :cascade do |t|
@@ -68,8 +85,21 @@ ActiveRecord::Schema.define(version: 2019_04_30_053657) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "favourites_count"
+    t.integer "favorite_count", default: 0
     t.index ["format_id"], name: "index_listings_on_format_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -77,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_04_30_053657) do
     t.bigint "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "payment_id"
     t.index ["listing_id"], name: "index_purchases_on_listing_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
@@ -97,10 +128,13 @@ ActiveRecord::Schema.define(version: 2019_04_30_053657) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorites", "users"
   add_foreign_key "genres_listings", "genres"
   add_foreign_key "genres_listings", "listings"
   add_foreign_key "listings", "formats"
   add_foreign_key "listings", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "purchases", "listings"
   add_foreign_key "purchases", "users"
 end

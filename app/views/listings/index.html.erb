@@ -1,16 +1,18 @@
 <h1></h1>
 
-<% @listings.each do |listing| %>
-    <div >
-        <p><%= listing.artist%></p>
-        <p><%= listing.title%></p>
-        <p><%= listing.format %></p>
-        <p><%= listing.condition %></p>
-        <p><%= listing.year %></p>
-        <p><%= listing.price %></p>
-        <p><%= listing.description %></p>
+<%= search_form_for @q do |f| %>
 
-        <%# <%= link_to "edit", edit_listing_path(@listing.id) %> 
-         <%# <%= link_to "show", listing_path(@listing.id) %>
-    </div>
+  <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<% @results.each do |result| %>
+<ul>
+<li>
+<p>Album: <%= result.title %> | Artist: <%= result.artist%> | <%= link_to "go to album ", listing_path(result.id) %></p>
+</li>
+</ul>
 <% end %>
