@@ -12,6 +12,12 @@
 <%= image_tag 'coverart' %>
 <%end%>
 
+<%unless current_user.favorite_listings.exists?(id: @listing.id) %>
+<%= link_to 'Add to favorites', favorite_listings_path(listing_id: @listing), method: :post %>
+<% else %>
+<%= link_to 'Remove from favorites', favorite_listing_path(@listing.id), method: :delete %>
+<% end %>
+
 <p>Album: <%= @listing.title%></p>
 <p>Artist: <%= @listing.artist%></p>
 <p>Genres:
