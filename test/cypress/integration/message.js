@@ -24,8 +24,8 @@ describe('Message flow', function() {
         cy.createUser2()
         cy.createListing2()
         cy.visit("/")
-        cy.contains("go to album").click()
-        cy.contains("Contact leah").click()
+        cy.contains("go to album").click();
+        cy.contains("Contact leah").click();
         cy.contains("Inbox");
     });
 
