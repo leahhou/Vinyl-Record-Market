@@ -6,7 +6,7 @@ describe('Message flow', function() {
         cy.createUser()
         cy.createListing()
         // cy.login()
-    })
+    });
     
     it("get to conversations", function() {
         
@@ -17,12 +17,17 @@ describe('Message flow', function() {
   
     });
 
-    before(function() {
+
+    
+    it("Get to messages from listing", function(){
         cy.clearCookies()
         cy.createUser2()
         cy.createListing2()
-    })
-    it("Get to messages from listing", function(){
         cy.visit("/")
-    })
+        cy.contains("go to album").click()
+        cy.contains("Contact leah").click()
+        cy.contains("Inbox");
+    });
+
+    it
 });
