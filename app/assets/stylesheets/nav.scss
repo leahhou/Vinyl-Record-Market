@@ -1,3 +1,58 @@
-.nav_bar {
-    background-color: red;
+@import "variables";
+
+.nav_bar {   
+    color: #000000;  
+    ul {
+    list-style: none;
+    }
+    a {
+    text-decoration-line: none;
+    text-decoration: none;
+    padding-right: 6px; 
+    border-right: 1.2px solid #384040;
+    color: #384040;
+    }
+    /* visited link */
+    a:visited {
+        color: #384040;
+    }
+    /* mouse over link */
+    a:hover {
+       font-weight: 700;
+    }
+    /* selected link */
+    a:active {
+        font-weight: 700;
+    }
+}
+.nav_bar #logo {
+    font-family: $logo-font;
+    font-size: 160%;
+    padding: 4px;
+    a {
+        border: none;
+        &:hover {
+            color: rgb(67, 95, 73);
+            font-weight: 500;
+        }
+    }
+}
+#log_out, #sign_up {
+    border-right: none;
+}
+#new_album, #all_albums {
+    border: 0.1px solid #668181;
+    padding-left: 6px; 
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+}
+#message, #log_in {
+    margin-left: 20px;
+}
+.user_nav {
+    display: flex;
+    justify-content: flex-end;
+}
+.user_nav li {
+    display: inline-block;
 }

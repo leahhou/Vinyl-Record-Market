@@ -1,15 +1,22 @@
 <div class = "nav_bar">
-<nav>
-<%= link_to "Return Home", root_path %>
-<%= link_to "Browse all album", listings_path %>
-<% if current_user%>
- <%= link_to 'Messages', conversations_path %>
-<%= link_to "Go to Profile", my_profile_path %>
-<%= link_to "create a new listing", new_listing_path %>
-<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-<%else%>
- <%= link_to 'Sign in', new_user_session_path %>
-<%=link_to "Sign up", new_user_registration_path%>
-<%end%>
-</nav>
+
+    <header id="logo">
+    <%= link_to "Vinyl, Vinyl", root_path %>
+    </header>
+
+    <nav class="user_nav">
+        <ul>
+        <li><%= link_to "Browse All Albums", listings_path, id: "all_albums" %></li>
+        <% if current_user%>
+            <li><%= link_to "New Album To Sell", new_listing_path, id: "new_album"%></li>
+            <li><%= link_to 'My Messages', conversations_path, id: "message"%></li>
+            <li><%= link_to "My Profile", my_profile_path %></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, id: "log_out" %></li>
+        <%else%>
+            <li><%= link_to 'Log In', new_user_session_path, id: "log_in" %></li>
+            <li><%=link_to "Sign Up", new_user_registration_path, id: "sign_up" %></li>
+        <%end%>
+        </ul>
+    </nav>
 </div>
+

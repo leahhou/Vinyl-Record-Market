@@ -14,4 +14,10 @@
  *= require_self
  */
 
- @import "nav";
+ @import url('https://fonts.googleapis.com/css?family=Anton|Major+Mono+Display|Raleway:300,400,500,700');
+ @import "variables";
+
+ body {
+     background-color: $background-a;
+     font-family: $default-font;
+}
