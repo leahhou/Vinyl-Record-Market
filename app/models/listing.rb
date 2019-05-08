@@ -7,7 +7,7 @@ class Listing < ApplicationRecord
   has_one :purchase
   enum condition: { wore: 0, normal: 1, good: 2, excellent: 3}
   has_one_attached :cover
-
-  
+  # Validation
+  validates :artist, :title, :year, :format_id, :condition, :price, presence: true
   
 end
