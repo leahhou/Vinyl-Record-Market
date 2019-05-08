@@ -3,35 +3,31 @@
 
 
 
-<div>
-<h2>Most 3 Recent Records</h2>
-<%  @home_listings.each do |listing| %>
-<ul>
-<li>
-    <% if listing.cover.attached?%>
-    <%= image_tag listing.cover %>
-    <%else%>
-    <%= image_tag 'coverart' %>
-    <%end%>
-    Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%>
-</li>
-</ul>
-<% end %>
-</div>
 
-<h2> Most Popular Records </h2>
-<div>
-<%=@most_liked_listings.each do |listing| %>
-<ul>
-<li>
-    <% if listing.cover.attached?%>
-    <%= image_tag listing.cover %>
-    <%else%>
-    <%= image_tag 'coverart' %>
-    <%end%>
-    Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%>
-</li>
-</ul>
+<h2>Most Recent Records</h2>
+
+<% @home_listings.each do |listing| %>
+<div class='card'>
+        <%if listing.cover.attached?%>
+        <%= link_to image_tag(listing.cover), listing_path(listing.id) %>
+        <%else%>
+        <%= link_to image_tag('coverart'), listing_path(listing.id) %>
+        <%end%>
+   <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
+</div>
 <%end%>
 
-</div >
+
+<h2> Most Popular Records </h2>
+
+<%@most_liked_listings.each do |listing| %>
+<div class='card'>
+        <%if listing.cover.attached?%>
+        <%= link_to image_tag(listing.cover), listing_path(listing.id) %>
+        <%else%>
+        <%= link_to image_tag('coverart'), listing_path(listing.id) %>
+        <%end%>
+    <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
+</div>
+<%end%>
+
