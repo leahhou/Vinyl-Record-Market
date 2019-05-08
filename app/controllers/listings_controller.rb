@@ -105,10 +105,9 @@ class ListingsController < ApplicationController
         #updates the current listing (second part of form)
         @listing = current_user.listings.find(params[:id])
         @listing.update(listing_params)
-        p "we are here"
         if @listing.errors.any?
             set_genre_format_and_condition
-            render "new"
+            render "more"
         else
             @listing.genre_ids=params[:listing][:genre_id]
             redirect_to listing_path(@listing.id)

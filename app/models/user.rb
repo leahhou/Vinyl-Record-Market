@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :listings, :dependent => :destroy
   has_many :purchases
-  has_one_attached :avata
+  has_one_attached :avatar
   has_many :favorites
   has_many :favorite_listings, through: :favorites, source: :favorited, source_type: 'Listing'
   
