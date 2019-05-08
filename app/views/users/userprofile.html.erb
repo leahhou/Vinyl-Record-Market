@@ -4,11 +4,17 @@
 <%else%>
 <%=image_tag "blank"%>
 <%end%>
+
+<div>
+<%= link_to 'Favorites', my_favorites_path %>
+</div>
+
 <div>
 My Info
 <p>username: <%= current_user[:username] %> </p>
 <p>location: <%= current_user[:location] %> </p>
 </div>
+
 
 <h1> My Current Listings </h1>
 <%# need to verify when new form listing is working! %>
