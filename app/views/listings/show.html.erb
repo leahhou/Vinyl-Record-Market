@@ -17,6 +17,7 @@
 <%else%>
 <%= image_tag 'coverart' %>
 <%end%>
+</div>
 
 <div class='favourite'>
 <%if signed_in? and !(current_user.favorite_listings.exists?(id: @listing.id)) %>
