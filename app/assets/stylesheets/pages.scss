@@ -4,6 +4,14 @@
 @import "variables";
 
 .home {
+    .home_banner { 
+        margin-top: 3%;
+        font-family: $logo-font;
+        color: #ffffff;
+        font-size: 200%;
+        background-image: url("home_banner.jpg");
+        padding: 11%;
+    }
     .card {
         font-family: $title-font;
         font-size: 75%;
@@ -34,5 +42,7 @@
     a:active {
         font-weight: 700;
     }
-
+    .album_cover {
+    //   need to fix album cover sizing
+    }
 }

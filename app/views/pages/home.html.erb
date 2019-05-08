@@ -1,20 +1,25 @@
 <div class="home">
+
+    <div class="home_banner">
     <p>“Vinyl is the real deal. I’ve always felt like, until you buy the vinyl record, you don’t really own the album. And it’s not just me or a little pet thing or some kind of retro romantic thing from the past. It is still alive.” </p>
     <p>Jack White</p>
+    <%# <%= image_tag("home_banner.jpg", id: "home_banner", :alt => "website banner") %> 
+    </div>
 
-<img href=>
     <h2> most recent records </h2>
     <div class='card'>
     <% @home_listings.each do |listing| %>
     <ul>
         <li>
+            <ul>
             <%if listing.cover.attached?%>
-            <%= link_to image_tag(listing.cover), listing_path(listing.id)%>
+            <li class="album_cover"><%= link_to image_tag(listing.cover), listing_path(listing.id) %></li>
             <%else%>
-            <%= link_to image_tag('coverart'), listing_path(listing.id) %>
+            <li class="album_cover"><%= link_to image_tag('coverart'), listing_path(listing.id) %></li>
             <%end%>
-    <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
-    </li>
+            <li><p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p></li>
+            </ul>
+        </li>
     </ul>
     <%end%>
     </div>
@@ -24,16 +29,17 @@
     <%@most_liked_listings.each do |listing| %>
     <ul>
         <li>
+            <ul>
             <%if listing.cover.attached?%>
-            <%= link_to image_tag(listing.cover), listing_path(listing.id) %>
+            <li class="album_cover"><%= link_to image_tag(listing.cover), listing_path(listing.id) %></li>
             <%else%>
-            <%= link_to image_tag('coverart'), listing_path(listing.id) %>
+            <li class="album_cover"><%= link_to image_tag('coverart'), listing_path(listing.id) %></li>
             <%end%>
-            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
+            <li><p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p></li>
+            </ul>
         </li>
     </ul>
     <%end%>
     </div>
-
 </div>
 

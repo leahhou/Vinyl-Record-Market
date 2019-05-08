@@ -12,23 +12,21 @@
     border-right: 1.2px solid #384040;
     color: #384040;
     }
-    /* visited link */
     a:visited {
         color: #384040;
     }
-    /* mouse over link */
     a:hover {
        font-weight: 700;
     }
-    /* selected link */
     a:active {
         font-weight: 700;
     }
 }
 .nav_bar #logo {
     font-family: $logo-font;
-    font-size: 160%;
-    padding: 4px;
+    font-size: 200%;
+    padding-left: 20px;
+    margin-top: 30px;
     a {
         border: none;
         &:hover {
