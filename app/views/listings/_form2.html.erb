@@ -1,3 +1,9 @@
+<% if @listing.errors.any? %>
+    <% for error in @listing.errors.full_messages %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
 <%= form_with model: listing, url: {action: url}, local: true do |form|%>
   
 
