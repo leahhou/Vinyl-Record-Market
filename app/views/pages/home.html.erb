@@ -17,7 +17,7 @@
             <%else%>
             <li class="album_cover"><%= link_to image_tag('coverart'), listing_path(listing.id) %></li>
             <%end%>
-            <li><p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p></li>
+            <li><p> Album: <%= listing.title%> |  Artist: <%= listing.artist%>  </p></li>
             </ul>
         </li>
     </ul>
@@ -35,7 +35,7 @@
             <%else%>
             <li class="album_cover"><%= link_to image_tag('coverart'), listing_path(listing.id) %></li>
             <%end%>
-            <li><p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p></li>
+            <li><p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> </p></li>
             </ul>
         </li>
     </ul>
