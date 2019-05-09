@@ -1,16 +1,52 @@
 // style for website
 @import "variables";
 .album_show {
-    .common_view {
-        margin: 10px;
-        .favourite {
+    .album_display_1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 5%;
+        margin-right: 5%;
+        .common_view {
+            display: flex;
+            flex-direction: column; 
+            .favourite {
+                display: inline-block;
+                margin-bottom: 15px;
+                a {
+                    text-decoration-line: none;
+                    text-decoration: none;
+                    color: #384040;
+                    border: 1px solid  #566464;
+                    padding: 1%;
+                }
+                a:visited {
+                    color: #384040;
+                }
+                a:hover {
+                    font-weight: 700;
+                }
+                a:active {
+                    font-weight: 700;
+                }
+            }
+            .album_cover {
+                display: inline-block;
+                img {
+                    width: 450px;
+                    height: 450px;
+                }
+            }
+        }   
+        .owner_view {
+            margin: 10px;
+            margin-top: -7px;
             a {
                 text-decoration-line: none;
                 text-decoration: none;
                 color: #384040;
-                border: 1px solid  #384040;
-                padding: 0.3%;
-            }
+                font-size: 110%;
+                }
             a:visited {
                 color: #384040;
             }
@@ -21,67 +57,73 @@
                 font-weight: 700;
             }
         }
-        .album_cover {
-            img {
-                width: 450px;
-                height: 450px;
+
+        .buyer_options_and_album_display_1 {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            width: 100%;
+
+            .message_and_buy {
+                display: inline-block;
+                margin-left: 2%;
+                margin-right: 2%;
+                width: 100%;
+                a {
+                    text-decoration-line: none;
+                    text-decoration: none;
+                    color: #384040;
+                    font-size: 110%;
+                    border: 1px solid  #384040;
+                    padding: 3%;
+                    }
+                a:visited {
+                    color: #384040;
+                }
+                a:hover {
+                    font-weight: 700;
+                }
+                a:active {
+                    font-weight: 700;
+                }
+            }
+            .album_info_1 {
+                display: inline-block;
+                width: 200%;
+                margin-left: 2%;
+                margin-right: 2%;
+                font-size: 120%;
+                color: #384040;
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    li {
+                        margin-top:10px;
+                    }
+                    #genres ul {
+                        display: flex;
+                        flex-direction: row;
+                        display: inline-block;
+                        list-style: square;
+                        margin: 0;
+                        li {
+                            margin: 0;
+                        }
+                    }
+                }
             }
         }
     }
     
-    .owner_view {
-        margin: 10px;
-        margin-top: -7px;
-        a {
-            text-decoration-line: none;
-            text-decoration: none;
-            color: #384040;
-            font-size: 110%;
-            }
-        a:visited {
-            color: #384040;
-        }
-        a:hover {
-            font-weight: 700;
-        }
-        a:active {
-            font-weight: 700;
-        }
-    }
-
-    .buyer_options_and_album_info_1 {
+    .album_display_2 {
         display: flex;
         flex-direction: row;
-       .message_and_buy {
-           display: inline-block;
-           margin: 10px;
-           a {
-            text-decoration-line: none;
-            text-decoration: none;
-            color: #384040;
-            font-size: 110%;
-            border: 1px solid  #384040;
-            padding: 1%;
-            }
-        a:visited {
-            color: #384040;
+        margin-left: 5%;
+        margin-right: 5%;
+        .album_display_3 {
+            display: flex;
+            flex-direction: column;
         }
-        a:hover {
-            font-weight: 700;
-        }
-        a:active {
-            font-weight: 700;
-        }
-
-       }
-       .album_info_1 {
-            display: inline-block;
-            ul {
-                list-style: none;
-            }
-           
-    }
-
     }
 
 }
