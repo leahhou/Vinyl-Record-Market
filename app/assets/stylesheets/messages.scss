@@ -1,6 +1,7 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 li{
    list-style-type: none;
 }
@@ -16,5 +17,14 @@ li{
     margin-right: 2%;
     textarea{ 
         width:100%;
+    }
+    input[type=submit] {
+        float: right;
+        padding:5px 15px; 
+        background:#ccc; 
+        border:0 none;
+        cursor:pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px; 
     }
 }

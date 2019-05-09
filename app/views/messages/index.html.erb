@@ -1,3 +1,5 @@
+<div id= "messages">
+
 <h1>Conversation with <%=@conversation.recipient(current_user).username%></h1>
 
 <ul> 
@@ -32,7 +34,10 @@
 <%= form_for [@conversation, @message] do |f| %>
   <div class="field">
     <%= f.text_area :body, placeholder: "Your message" %>
+    <%= f.submit "Send" %>
   </div>
 
-  <%= f.submit "Send" %>
+  
 <% end %>
+
+</div>
