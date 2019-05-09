@@ -1,4 +1,6 @@
-<h1>Inbox</h1>
+<div id= "messages">
+
+<h1>Conversation with <%=@conversation.recipient(current_user).username%></h1>
 
 <ul> 
     <%if @conversations%>
@@ -19,8 +21,11 @@
   <% @messages.each do |message| %>
     <% if message.body %>
       <li>
-        <h4><%= message.user.username %></h4>
+      <div class="message">
+      <%= image_tag return_avatar(message.user) %>
+        <%= message.user.username %> at <%= message.time %> 
         <p><%= message.body %></p>
+        </div>
       </li>
     <% end %>
   <% end %>
@@ -29,7 +34,10 @@
 <%= form_for [@conversation, @message] do |f| %>
   <div class="field">
     <%= f.text_area :body, placeholder: "Your message" %>
+    <%= f.submit "Send" %>
   </div>
 
-  <%= f.submit "Send" %>
+  
 <% end %>
+
+</div>
