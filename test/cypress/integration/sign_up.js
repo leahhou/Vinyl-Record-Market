@@ -11,8 +11,6 @@ describe('Rails Sign Up Create', function() {
         
         cy.get("[name='user[username]']").type("leah"); // select username field and type in leah
         cy.get("[name='user[email]']").type("hsx_124@hotmail.com"); // select email field and type in email
-<<<<<<< HEAD
-=======
         cy.get("[name='user[password]']").type("123456"); // select password field and type in password
         cy.get("[name='user[password_confirmation]']").type("123456"); // select password confirmation field and retype same password
         cy.get("[name='user[location]']").type("Australia"); // select location field and type in location
@@ -30,7 +28,6 @@ describe('Rails Sign Up Create', function() {
         
         cy.get("[name='user[username]']").type("alex"); // select username field and type in leah
         cy.get("[name='user[email]']").type("alex@hotmail.com"); // select email field and type in email
->>>>>>> dev
         cy.get("[name='user[password]']").type("123456"); // select password field and type in password
         cy.get("[name='user[password_confirmation]']").type("123456"); // select password confirmation field and retype same password
         cy.get("[name='user[location]']").type("Australia"); // select location field and type in location
