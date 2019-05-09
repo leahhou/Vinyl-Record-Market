@@ -1,21 +1,21 @@
 <div class = "nav_bar">
 
-    <header id="logo">
+    <header class="logo">
     <%= link_to "Vinyl, Vinyl", root_path %>
     
     </header>
 
     <nav class="user_nav">
         <ul>
-        <li><%= link_to "Browse All Albums", listings_path, id: "all_albums" %></li>
+        <li><%= link_to "Browse All Albums", listings_path, class: "border_button" %></li>
         <% if current_user%>
-            <li><%= link_to "New Album To Sell", new_listing_path, id: "new_album"%></li>
-            <li><%= link_to 'My Messages', conversations_path, id: "message"%></li>
+            <li><%= link_to "New Album To Sell", new_listing_path, class: "border_button"%></li>
+            <li><%= link_to 'My Messages', conversations_path, class: "left" %></li>
             <li><%= link_to "My Profile", my_profile_path %></li>
-            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, id: "log_out" %></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "right" %></li>
         <%else%>
-            <li><%= link_to 'Log In', new_user_session_path, id: "log_in" %></li>
-            <li><%=link_to "Sign Up", new_user_registration_path, id: "sign_up" %></li>
+            <li><%= link_to 'Log In', new_user_session_path, class: "left" %></li>
+            <li><%=link_to "Sign Up", new_user_registration_path, class: "right" %></li>
         <%end%>
         </ul>
     </nav>

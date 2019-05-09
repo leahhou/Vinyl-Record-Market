@@ -7,38 +7,31 @@
     </div>
 
     <h2> most recent records </h2>
-    <div class='card'>
+    <div class= 'recent'>
     <% @home_listings.each do |listing| %>
-    <ul>
-        <li>
-            <ul>
+    <div class='card'>
             <%if listing.cover.attached?%>
-            <li class="album_cover"><%= link_to image_tag(listing.cover), listing_path(listing.id) %></li>
+            <%= link_to image_tag(listing.cover), listing_path(listing.id), class: "album_cover" %>
             <%else%>
-            <li class="album_cover"><%= link_to image_tag('coverart'), listing_path(listing.id) %></li>
+            <%= link_to image_tag('coverart'), listing_path(listing.id), class: "album_cover" %>
             <%end%>
-            <li><p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p></li>
-            </ul>
-        </li>
-    </ul>
+            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
+           </div>
     <%end%>
     </div>
+    
 
     <h2> most popular records  </h2>
-    <div class='card'>
+   <div class= 'popular'>
     <%@most_liked_listings.each do |listing| %>
-    <ul>
-        <li>
-            <ul>
+             <div class='card'> 
             <%if listing.cover.attached?%>
-            <li class="album_cover"><%= link_to image_tag(listing.cover), listing_path(listing.id) %></li>
+            <%= link_to image_tag(listing.cover), listing_path(listing.id), class: "album_cover" %>
             <%else%>
-            <li class="album_cover"><%= link_to image_tag('coverart'), listing_path(listing.id) %></li>
+            <%= link_to image_tag('coverart'), listing_path(listing.id), class: "album_cover" %>
             <%end%>
-            <li><p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p></li>
-            </ul>
-        </li>
-    </ul>
+            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
+           </div>
     <%end%>
     </div>
 </div>

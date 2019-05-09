@@ -21,8 +21,15 @@
     a:active {
         font-weight: 700;
     }
+    
+    .border_button {
+        border: 0.1px solid #668181;
+        padding-left: 6px; 
+        padding-top: 5px; 
+        padding-bottom: 5px; 
+    }
 }
-.nav_bar #logo {
+.nav_bar .logo {
     font-family: $logo-font;
     font-size: 200%;
     padding-left: 20px;
@@ -35,16 +42,12 @@
         }
     }
 }
-#log_out, #sign_up {
+// #log_out, #sign_up 
+.right{
     border-right: none;
 }
-#new_album, #all_albums {
-    border: 0.1px solid #668181;
-    padding-left: 6px; 
-    padding-top: 5px; 
-    padding-bottom: 5px; 
-}
-#message, #log_in {
+
+.left {
     margin-left: 20px;
 }
 .user_nav {
