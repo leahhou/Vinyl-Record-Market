@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 
+<<<<<<< HEAD
   def home 
     @most_liked_listings = Listing.all.sort_by {|listing| listing.favorite_count}.last(3).reverse
     @home_listings = Listing.last(3).reverse
@@ -17,5 +18,11 @@ class PagesController < ApplicationController
     @artist_image_url = @page.main_image_url
 
   end
+=======
+      def home 
+        @most_liked_listings = Listing.all.sort_by {|listing| listing.favorite_count}.last(3).reverse
+        @home_listings = Listing.last(3).reverse
+      end
+>>>>>>> dev
 
 end
