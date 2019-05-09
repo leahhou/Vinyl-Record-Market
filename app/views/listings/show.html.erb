@@ -1,97 +1,83 @@
+<div class="album_show">
 
-<%unless listing_owner?(@listing)%>
-<button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-<%end%>
+<%# List Onwer's options %>
+  <div class="owner_view">
+    <%if signed_in? and listing_owner?(@listing) %>
+      <%= link_to "edit album ", edit_listing_path(@listing.id) %>
+      <%= link_to "delete album ", listing_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
 
+<%# Buyer's views %>
+  <div>
+    <%if @listing.cover.attached?%>
+      <%= image_tag @listing.cover %>
+    <%else%>
+      <%= image_tag 'coverart' %>
+    <%end%>
+  </div>
 
-<div>
-<%if signed_in? and listing_owner?(@listing) %>
-  <%= link_to "edit album ", edit_listing_path(@listing.id) %>
-  <%= link_to "delete album ", listing_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-</div>
+  <div class='favourite'>
+    <%unless listing_owner?(@listing)%>
+      <%if signed_in? and !(current_user.favorite_listings.exists?(id: @listing.id)) %>
+        <%= link_to 'Add to favorites', favorite_listings_path(listing_id: @listing), method: :post %>
+      <% elsif signed_in? and current_user.favorite_listings.exists?(id: @listing.id)   %>
+        <%= link_to 'Remove from favorites', favorite_listing_path(@listing.id), method: :delete %>
+      <% end %>
+    <%end%>
+  </div>
 
-<div>
-<%if @listing.cover.attached?%>
-<%= image_tag @listing.cover %>
-<%else%>
-<%= image_tag 'coverart' %>
-<%end%>
-</div>
-
-<%unless listing_owner?(@listing)%>
-<div class='favourite'>
-<%if signed_in? and !(current_user.favorite_listings.exists?(id: @listing.id)) %>
-<%= link_to 'Add to favorites', favorite_listings_path(listing_id: @listing), method: :post %>
-<% elsif signed_in? and current_user.favorite_listings.exists?(id: @listing.id)   %>
-<%= link_to 'Remove from favorites', favorite_listing_path(@listing.id), method: :delete %>
-<% end %>
-</div>
-<%end%>
-
-
-<p>Album: <%= @listing.title%></p>
-<p>Artist: <%= @listing.artist%></p>
-<p>Genres:
-<% @listing.genres.each do |genre|%>
-<ul>
-<li><%= genre.name%></li>
-</ul>
-<% end %> 
-</p>
-
+<div class="message_and_buy">
 <%# listing_owner is a helper method defined in /helpers/application_helper.rb %>
-<%unless listing_owner?(@listing)%>
-<p>Listed by: <%= link_to @listing_owner.username, user_path(@listing_owner.id) %></p>
-<% if @purhcase != nil%>
-<button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-<%end%>
-<%# need to make status dynamic %>
-<%= link_to "Contact #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post  if signed_in?%>
-<%# need to make status dynamic %>
-<%end%>
-
-
-  <% if @purchase%>
-  <p><%= "Status: Sold"%></p>
-  <% else %>
-  <p><%= "Status: Available"%></p>
-  <% end %>
-
-
+  <%unless listing_owner?(@listing)%>
+    <p>Owner : <%= link_to @listing_owner.username, user_path(@listing_owner.id) %></p>
+    <% if @purhcase != nil%>
+      <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+    <%end%>
+      <%= link_to "Message #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post  if signed_in?%>
+  <%end%>
 </div>
 
-<div>
-<p>Year: <%= @listing.year%></p>
-<p>Format: <%= @listing.format.name%></p>
-<p>Album Condition: <%= @listing.condition%></p>
-<p>Location: <%= @listing.user.location%> </p>
+<%# Album info %>
+<div class="album_info">
+  <div class="album_info_1">
+    <p>Album: <%= @listing.title%></p>
+    <p>Artist: <%= @listing.artist%></p>
+    <p>Genres:
+    <% @listing.genres.each do |genre|%>
+    <ul>
+    <li><%= genre.name%></li>
+    </ul>
+    <% end %> 
+    </p>
+    <% if @purchase%>
+    <p><%= "Status: Sold"%></p>
+    <% else %>
+    <p><%= "Status: Available"%></p>
+    <% end %>
+  </div>
+  <div class="album_info_2">
+    <p>Year: <%= @listing.year%></p>
+    <p>Format: <%= @listing.format.name%></p>
+    <p>Album Condition: <%= @listing.condition%></p>
+    <p>Location: <%= @listing.user.location%> </p>
+  </div>
+  <div class="album_info_3">
+    <p>Description: <%= @listing.description%></p>
+  </div>
 </div>
 
-<div>
-<p>Description: <%= @listing.description%></p>
+<div class="buy_button_2">
+  <% unless listing_owner?(@listing)%>
+  <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+  <%end %>
 </div>
-
-<div>
-<%# need to fix genre dynamic display %>
-<%# <p>Genre:<%= @listing.genre_id%>
-<p>Album imges</p>
-
-
-<% unless listing_owner?(@listing)%>
-<button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-<button > Contact <%= @listing.user.username%></button>
-<%end %>
-</div>
-
 
 <script> //This is the "dirty way" -Garret 2019 
-
 
 if (typeof elements === "undefined") {
   let elements;
 }
-
 elements = document.querySelectorAll("[data-stripe='stripePayment']");
 
 for(let i = 0; i < elements.length; i++) {
@@ -106,9 +92,7 @@ for(let i = 0; i < elements.length; i++) {
       });
   });
 }
-
 </script>
-
 <%= javascript_include_tag "payment_button"%>
 </div>
 
@@ -117,8 +101,6 @@ for(let i = 0; i < elements.length; i++) {
   <% else %>
     <img src=<%= @artist_image_url %> alt="An image of the band sourced from wikipedia">
   <% end%>
-
-
 <%= @page.summary %>
 
-
+</div>
