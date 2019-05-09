@@ -12,14 +12,18 @@
         background-image: url("home_banner.jpg");
         padding: 11%;
     }
-    .card {
+    .recent, .popular {
         font-family: $title-font;
         font-size: 75%;
         display: flex;
         justify-content: space-around;
+        
+        
     }
-    li {
-        list-style: none;
+    
+    div.card{
+        text-align: center;
+        width: 33%;
         flex: 1 1 1;
     }
     h2 {
@@ -43,6 +47,12 @@
         font-weight: 700;
     }
     .album_cover {
-    //   need to fix album cover sizing
+        display: inline-block;
+        img {
+    
+            
+            width: 200px;
+            height: 200px;
+        }
     }
 }
