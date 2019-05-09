@@ -84,19 +84,6 @@ class ListingsController < ApplicationController
     ) 
     @stripe_session_id = stripe_session.id
     
-    # Needs to be assessed. If nothing is returned, then remove + " (band)"
-    
-    artist = @listing.artist + " (band)"         #include " (band)" to avoid Muse and birthday party issue 
-    @page = Wikipedia.find artist                                 #Init @page as the wiki page for the artist
-
-    if @page.categories == nil                                               #If the page does not exist then do this
-        artist = @listing.artist                 #Include the Muse and Birthday party problems
-        @page = Wikipedia.find artist                             #Init @page as the wiki page for the artist
-    end
-
-    
-    @artist_image_url = @page.main_image_url
-    
     #view a single listing 
     end  
     

@@ -9,12 +9,14 @@
     <h2> most recent records </h2>
     <div class= 'recent'>
     <% @home_listings.each do |listing| %>
+    
     <div class='card'>
             <%if listing.cover.attached?%>
             <%= link_to image_tag(listing.cover), listing_path(listing.id), class: "album_cover" %>
             <%else%>
             <%= link_to image_tag('coverart'), listing_path(listing.id), class: "album_cover" %>
             <%end%>
+            
             <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
            </div>
     <%end%>
@@ -34,5 +36,18 @@
            </div>
     <%end%>
     </div>
+
+    <h2> Featured Artist  </h2>
+
+    <div id = "wikipedia_content">
+        <% if @artist_image_url == nil %>  <%# ALL good => Use main image %>
+        <% else %>
+            <img src=<%= @artist_image_url%> alt="An image of the band sourced from wikipedia" id = "wikipedia_image">
+        <% end%>
+        <div id = "wikipedia_text">
+        <%= @page.summary %>
+        </div>
+    </div>
+
 </div>
 

@@ -47,6 +47,29 @@
         font-weight: 700;
     }
     .album_cover {
+    //   need to fix album cover sizing
+    }
+
+
+    #wikipedia_content {
+        display: flex;
+        flex-direction: row;
+        background: $background-a;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+        height: 50vw;
+        #wikipedia_image {
+            width: 30vw;
+            height: auto;
+        }
+
+        #wikipedia_text {
+            width: 60vw;
+            height: auto;
+        }
+    }
+
         display: inline-block;
         img {
     
@@ -55,4 +78,3 @@
             height: 200px;
         }
     }
-}

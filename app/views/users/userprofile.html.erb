@@ -4,28 +4,31 @@
 
 
 
-<div>
-<%= link_to 'Favorites', my_favorites_path %>
-</div>
+    <div>
+        <%= link_to 'Favorites', my_favorites_path %>
+    </div>
 
-<div>
-My Info
-<p>username: <%= current_user[:username] %> </p>
-<p>location: <%= current_user[:location] %> </p>
-</div>
+    <div>
+        My Info
+        <p>username: <%= current_user[:username] %> </p>
+        <p>location: <%= current_user[:location] %> </p>
+    </div>
 
 
-<h1> My Current Listings </h1>
+<h2> My Current Listings </h2>
 <%# need to verify when new form listing is working! %>
- <%@user_listings.each do |listing| %>
-    <div class='card'>
-    <%=image_tag return_cover(listing)%>
-    
- - <%= listing.title %> <%= link_to "go to album ", listing_path(listing.id) %> </div>
-<% end %>
+    <div id = "user_current_listings_container">
+            <% for listing in @user_listings %>
+        <div class = "user_current_listing">
+            <% if listing.cover.attached?%>
+                <%= image_tag listing.cover %>
+            <%else%>
+                <%= image_tag 'coverart' %>
+            <%end%>
+            
+              <p>  <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </p>
+            
+        </div>
+        <% end %>
+    </div>
 
-
-<div>
-My Sold Listings
-<%# Need to hook with purchase %>
-</div>

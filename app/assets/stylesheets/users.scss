@@ -1,3 +1,29 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+
+
+.user_own_profile_view {
+    background-color: aqua;
+
+    .users_current_listing_container{
+        font-family: $title-font;
+        font-size: 75%;
+        display: flex;
+        //flex-direction: column;
+        //align-content: center;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+    
+    }
+
+    div.user_current_listing{
+        text-align: center;
+        display: inline-block;
+        width: 33%;
+        margin: 0px;
+    }
+
+}
