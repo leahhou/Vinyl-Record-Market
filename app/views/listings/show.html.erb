@@ -5,9 +5,9 @@
     <div class='favourite'>
       <%unless listing_owner?(@listing)%>
         <%if signed_in? and !(current_user.favorite_listings.exists?(id: @listing.id)) %>
-          <%= link_to 'Add to favorites', favorite_listings_path(listing_id: @listing), method: :post %>
+          <%= link_to 'Add to my favorites', favorite_listings_path(listing_id: @listing), method: :post %>
         <% elsif signed_in? and current_user.favorite_listings.exists?(id: @listing.id)   %>
-          <%= link_to 'Remove from favorites', favorite_listing_path(@listing.id), method: :delete %>
+          <%= link_to 'Remove from my favorites', favorite_listing_path(@listing.id), method: :delete %>
         <% end %>
       <%end%>
     </div>
@@ -23,21 +23,20 @@
     <%# List Onwer's options %>
   <div class="owner_view">
     <%if signed_in? and listing_owner?(@listing) %>
-      <%= link_to "edit album ", edit_listing_path(@listing.id) %>
-      <%= link_to "delete album ", listing_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Edit Album  |", edit_listing_path(@listing.id) %>
+      <%= link_to "Delete Album ", listing_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
 
-  <div class="buyer_options_and_album_info_1">
     <%# Buyer's views %>
+  <div class="buyer_options_and_album_info_1">
     <div class="message_and_buy">
     <%# listing_owner is a helper method defined in /helpers/application_helper.rb %>
-      <%unless listing_owner?(@listing)%>
-        <p>Owner : <%= link_to @listing_owner.username, user_path(@listing_owner.id) %></p>
+      <% unless listing_owner?(@listing)%>
         <% if @purhcase != nil%>
           <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
         <%end%>
-          <%= link_to "Message #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post  if signed_in?%>
+      <%= link_to "Message Owner #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post  if signed_in?%>
       <%end%>
     </div>
     <%# Album info 1%>
