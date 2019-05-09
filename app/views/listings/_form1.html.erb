@@ -1,3 +1,5 @@
+<div class="form_1">
+
 <% if @listing.errors.any? %>
     <% for error in @listing.errors.full_messages %>
         <p><%= error %></p>
@@ -49,5 +51,5 @@
     <div>
         <%= form.submit %>
     </div>
-
 <% end %>
+</div>
