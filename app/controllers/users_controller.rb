@@ -21,6 +21,14 @@ def userprofile
     end
 end
 
+def favorites
+    if current_user
+        @favorite_listings = current_user.favorite_listings
+    else 
+        redirect_to new_user_session_path
+    end 
+end 
+
 private
 def set_user
     id = params[:id]

@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :listings
+  has_many :listings, :dependent => :destroy
   has_many :purchases
-  has_one_attached :avata
+  has_one_attached :avatar
   has_many :favorites
   has_many :favorite_listings, through: :favorites, source: :favorited, source_type: 'Listing'
   
@@ -31,7 +31,6 @@ class User < ApplicationRecord
         
         # Only allow letter, number, underscore and punctuation.
          validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-         
          validate :validate_username
 
           def validate_username

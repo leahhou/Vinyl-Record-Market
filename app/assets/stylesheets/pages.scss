@@ -1,3 +1,70 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+.home {
+    .home_banner { 
+        margin-top: 3%;
+        font-family: $logo-font;
+        color: #ffffff;
+        font-size: 200%;
+        background-image: url("home_banner.jpg");
+        padding: 11%;
+    }
+    .card {
+        font-family: $title-font;
+        font-size: 75%;
+        display: flex;
+        justify-content: space-around;
+    }
+    li {
+        list-style: none;
+        flex: 1 1 1;
+    }
+    h2 {
+        font-family: $title-font;
+        font-weight:300;
+        font-size: 120%;
+    }
+    a {
+        text-decoration-line: none;
+        text-decoration: none;
+        color: #384040;
+    }
+    a:visited {
+        color: #384040;
+    }
+    a:hover {
+       font-weight: 700;
+       font-size: 125%;
+    }
+    a:active {
+        font-weight: 700;
+    }
+    .album_cover {
+    //   need to fix album cover sizing
+    }
+
+
+    #wikipedia_content {
+        display: flex;
+        flex-direction: row;
+        background: $background-a;
+        justify-content: space-around;
+        align-items: center;
+        border: #384040;  //Remove this
+        width: 100vw;
+        height: 50vw;
+        #wikipedia_image {
+            width: 30vw;
+            height: auto;
+        }
+
+        #wikipedia_text {
+            width: 60vw;
+            height: auto;
+        }
+    }
+
+}

@@ -13,8 +13,6 @@ class PaymentsController < ApplicationController
         
         Purchase.create(user_id: user_id, listing_id: listing_id, payment_id: payment_id)
         render json: ""
-
-        
     end
 
     def success
