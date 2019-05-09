@@ -73,7 +73,7 @@
 
     <%# Album info 3%>
   <div class="album_info_3">
-    <p>Description: <%= @listing.description%></p>
+    Description: <%= @listing.description%>
   </div>
 
   <div class="buy_button_2">
@@ -101,15 +101,6 @@
   }
   </script>
   <%= javascript_include_tag "payment_button"%>
-  </div>
-
-<%# artist info from wikipedia %>
-  <div >
-    <% if @artist_image_url == nil %>  <%# ALL good => Use main image %>
-    <% else %>
-      <img src=<%= @artist_image_url %> alt="An image of the band sourced from wikipedia">
-    <% end%>
-    <%= @page.summary %>
   </div>
 
 </div>
