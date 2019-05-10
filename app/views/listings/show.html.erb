@@ -29,7 +29,7 @@
     <div class="buyer_options_and_album_display_2">
       <div class="message_and_buy">
       <%# listing_owner is a helper method defined in /helpers/application_helper.rb %>
-        <% unless listing_owner?(@listing) or @listing.purchased?%>
+        <% unless listing_owner?(@listing) or @listing.purchased? or !(signed_in?)%>
         <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>   
         <%= link_to "Message Owner #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post%>
         <%end%>
