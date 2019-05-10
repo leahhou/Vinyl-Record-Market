@@ -22,11 +22,11 @@
     <div id = "user_current_listings_container">
             <% for listing in @user_listings %>
         <div class = "user_current_listing">
-            <% if listing.cover.attached?%>
-                <%= image_tag listing.cover %>
-            <%else%>
-                <%= image_tag 'coverart' %>
-            <%end%>
+            
+                <%= image_tag return_cover(listing) %>
+            
+                
+           
             
               <p>  <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </p>
             
