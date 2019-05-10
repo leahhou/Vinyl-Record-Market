@@ -19,70 +19,54 @@
           <%= image_tag 'coverart' %>
         <%end%>
       </div>
-    </div>
-
-      <%# List Onwer's options %>
-    <div class="owner_view">
-      <%if signed_in? and listing_owner?(@listing) %>
-        <%= link_to "Edit Album  |", edit_listing_path(@listing.id) %>
-        <%= link_to "Delete Album ", listing_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+        <%# List Onwer's options %>
+      <div class="owner_view">
+        <%if signed_in? and listing_owner?(@listing) %>
+          <%= link_to "Edit Album  |", edit_listing_path(@listing.id) %>
+          <%= link_to "Delete Album ", listing_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
     </div>
 
       <%# Buyer's views %>
-    <div class="buyer_options_and_album_display_1">
+    <div class="buyer_options_and_album_display_2">
       <div class="message_and_buy">
       <%# listing_owner is a helper method defined in /helpers/application_helper.rb %>
         <% unless listing_owner?(@listing)%>
-          <% if @purhcase != nil%>
+          <%# <% if @purhcase != nil%>
             <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-          <%end%>
+          <%# <%end%>
         <%= link_to "Message Owner #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post  if signed_in?%>
         <%end%>
       </div>
       <%# Album info 1%>
-      <div class="album_info_1">
-      <ul>
-        <li>Album :   <%= @listing.title%></li>
-        <li>Artist :   <%= @listing.artist%></li>
-        <li id="genres">Genres :
-          <% @listing.genres.each do |genre|%>
-          <ul>
-            <li><%= genre.name%></li>
-          </ul>
-          <% end %> 
-        </li>
-        <li>
-          <% if @purchase%>
-          <%= "Status: Sold"%>
-          <% else %>
-          <%= "Status: Available"%>
-          <% end %>
-        </li>
-      </ul>
-      </div>
-    </div>
-  </div>
-
-    <%# Album info 2%>
-  <div class="album_display_2">
-    <div class="album_info_2">
-      <p>Year :   <%= @listing.year%></p>
-      <p>Format :   <%= @listing.format.name%></p>
-      <p>Album Condition :   <%= @listing.condition%></p>
-      <p>Location :   <%= @listing.user.location%> </p>
-    </div>
-
-      <%# Album info 3%>
-    <div class= "album_display_3">
-      <div class="album_info_3">
-        Description :   <%= @listing.description%>
-      </div>
-      <div class="buy_button_2">
-        <% unless listing_owner?(@listing)%>
-        <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-        <%end %>
-      </div>
+      <div class="album_info_1_2">
+        <div class="album_info_1">
+            <p id="album">Album :   <%= @listing.title%></p>
+            <p>Artist :   <%= @listing.artist%></p>
+            <ul id="genres">Genres :
+              <% @listing.genres.each do |genre|%>
+                <li><%= genre.name%></li>
+              <% end %> 
+            </ul>
+            <p>
+              <% if @purchase%>
+              <%= "Status: Sold"%>
+              <% else %>
+              <%= "Status: Available"%>
+              <% end %>
+            </p>
+        </div>
+        <div class="album_info_2">
+          <p>Year :   <%= @listing.year%></p>
+          <p>Format :   <%= @listing.format.name%></p>
+          <p>Album Condition :   <%= @listing.condition%></p>
+          <p>Location :   <%= @listing.user.location%> </p>
+          <p> Description : <%= @listing.description%> </p>
+          <% unless listing_owner?(@listing)%>
+            <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
+          <%end %>
+        </div>
     </div>
   </div>
 
