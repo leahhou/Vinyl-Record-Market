@@ -11,8 +11,10 @@
 
 <% @results.each do |result| %>
 <ul>
+<%unless result.purchased? %>
 <li>
-<p>Album: <%= result.title %> | Artist: <%= result.artist%> | <%= link_to "go to album ", listing_path(result.id) %></p>
+<p>Title: <%= result.title %> | Artist: <%= result.artist%> | <%= link_to "go to album ", listing_path(result.id) %></p>
 </li>
+<%end%>
 </ul>
 <% end %>
