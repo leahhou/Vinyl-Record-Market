@@ -1,9 +1,6 @@
 <h1> <%=@user.username%> 's Profile <h1>
-<%if @user.avatar.attached?%>
-<%= image_tag @user.avatar%>
-<%else%>
-<%=image_tag "blank"%>
-<%end%>
+
+<%= image_tag return_avatar(@user)%>
 
 <div>
 

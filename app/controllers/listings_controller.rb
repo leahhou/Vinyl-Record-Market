@@ -61,8 +61,6 @@ class ListingsController < ApplicationController
 
 
         @listing[:price]= @listing[:price]*100
-        @listing_genres = @listing.genres
-        @purchase = Purchase.find_by(listing_id: @listing.id)
     
         stripe_session = Stripe::Checkout::Session.create(
         customer_email: user_email,                  #This will be used for Stripe autofillS
@@ -85,19 +83,6 @@ class ListingsController < ApplicationController
     ) 
     @stripe_session_id = stripe_session.id
     
-    # Needs to be assessed. If nothing is returned, then remove + " (band)"
-    
-    artist = @listing.artist + " (band)"         #include " (band)" to avoid Muse and birthday party issue 
-    @page = Wikipedia.find artist                                 #Init @page as the wiki page for the artist
-
-    if @page.categories == nil                                               #If the page does not exist then do this
-        artist = @listing.artist                 #Include the Muse and Birthday party problems
-        @page = Wikipedia.find artist                             #Init @page as the wiki page for the artist
-    end
-
-    
-    @artist_image_url = @page.main_image_url
-    
     #view a single listing 
     end  
     
@@ -106,10 +91,9 @@ class ListingsController < ApplicationController
         #updates the current listing (second part of form)
         @listing = current_user.listings.find(params[:id])
         @listing.update(listing_params)
-        p "we are here"
         if @listing.errors.any?
             set_genre_format_and_condition
-            render "new"
+            render "more"
         else
             @listing.genre_ids=params[:listing][:genre_id]
             redirect_to listing_path(@listing.id)
@@ -124,7 +108,7 @@ class ListingsController < ApplicationController
     def destroy 
         #deletes current listings
         @listing.destroy
-        redirect_to listing_path
+        redirect_to my_profile_path
     end  
         
     #def payment

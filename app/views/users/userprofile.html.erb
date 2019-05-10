@@ -1,28 +1,36 @@
 <h1> <%=current_user[:username]%> 's Profile <h1>
-<%if @user.avatar.attached?%>
-<%= image_tag @user.avatar%>
-<%else%>
-<%=image_tag "blank"%>
-<%end%>
-<div>
-My Info
-<p>username: <%= current_user[:username] %> </p>
-<p>location: <%= current_user[:location] %> </p>
-</div>
 
-<h1> My Current Listings </h1>
+<%= image_tag return_avatar(@user)%>
+
+
+    <div>
+        <%= link_to 'Update Profile', edit_user_registration_path %>
+    <div>
+    <div>
+        <%= link_to 'Favorites', my_favorites_path %>
+    </div>
+
+    <div>
+        My Info
+        <p>username: <%= current_user[:username] %> </p>
+        <p>location: <%= current_user[:location] %> </p>
+    </div>
+
+
+<h2> My Current Listings </h2>
 <%# need to verify when new form listing is working! %>
- <% for listing in @user_listings %>
-    <% if listing.cover.attached?%>
-    <%= image_tag listing.cover %>
-    <%else%>
-    <%= image_tag 'coverart' %>
-    <%end%>
-<div> - <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </div>
-<% end %>
+    <div id = "user_current_listings_container">
+            <% for listing in @user_listings %>
+        <div class = "user_current_listing">
+            <% if listing.cover.attached?%>
+                <%= image_tag listing.cover %>
+            <%else%>
+                <%= image_tag 'coverart' %>
+            <%end%>
+            
+              <p>  <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </p>
+            
+        </div>
+        <% end %>
+    </div>
 
-
-<div>
-My Sold Listings
-<%# Need to hook with purchase %>
-</div>

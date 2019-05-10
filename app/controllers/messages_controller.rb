@@ -17,7 +17,9 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new(message_params)
     @message.user = current_user
 
-    if @message.save
+    if @message.errors.any?
+      render "index"
+    elsif @message.save
       redirect_to conversation_messages_path(@conversation)
     end
   end

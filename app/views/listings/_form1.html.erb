@@ -1,3 +1,11 @@
+<div class="form_1">
+
+<% if @listing.errors.any? %>
+    <% for error in @listing.errors.full_messages %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
 <%= form_with model: listing, url: {action: url},  local: true do |form|%>
 <%# url is signed to different method depends on which method url is handling. refer to new/edit/more.html.erb for more info %>
     <div>
@@ -24,7 +32,7 @@
 
     <div>
         <%= form.label :price %>
-        AUD$<%= form.text_field :price %> (intergar only)
+        AUD$<%= form.number_field :price, min: 0 %> (whole dollars only)
     </div>
 
     <p>Album Condition</p>
@@ -37,11 +45,11 @@
 
     <div>
         <%= form.label :description %>
-        <%= form.text_field :description %>
+        <%= form.text_area :description %>
     </div>
 
     <div>
         <%= form.submit %>
     </div>
-
 <% end %>
+</div>
