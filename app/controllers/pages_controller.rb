@@ -3,10 +3,12 @@ class PagesController < ApplicationController
   def home 
     @most_liked_listings = Listing.all.sort_by {|listing| listing.favorite_count}.last(3).reverse
     @home_listings = Listing.last(3).reverse
+  
 
 # Needs to be assessed. If nothing is returned, then remove + " (band)"
-    listing_count = Listing.count                                   #Inits a variable for the number of listings
-    random_listing_number = rand(1..listing_count)                  #random number from 1 to listings count
+    listing_selection = @most_liked_listings.map {|listing| listing.id}                  #random number from 1 to listings count
+    @home_listings.each { |listing| listing_selection << listing.id }
+    random_listing_number= listing_selection.sample
     artist = Listing.find(random_listing_number).artist + " (band)" #include " (band)" to avoid Muse and birthday party issue 
     @page = Wikipedia.find artist                                   #Init @page as the wiki page for the artist
       
@@ -15,7 +17,8 @@ class PagesController < ApplicationController
       @page = Wikipedia.find artist                                 #Init @page as the wiki page for the artist
     end
     @artist_image_url = @page.main_image_url
+   end 
 
-  end
+
 
 end
