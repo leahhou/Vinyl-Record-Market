@@ -1,11 +1,9 @@
 <h1> My Favorite listings </h1>
 <%@favorite_listings.each do |favorite| %>
     <div class ="card">
-        <%if favorite.cover.attached?%>
-        <%= link_to image_tag(favorite.cover), listing_path(favorite.id) %>
-        <%else%>
-        <%= link_to image_tag('coverart'), listing_path(favorite.id) %>
-        <%end%>
+        
+        <%= link_to image_tag((return_cover(favorite)), listing_path(favorite.id) %>
+        
     <%=favorite.artist%> :<%=favorite.title%>
 
     <%=favorite.description%>

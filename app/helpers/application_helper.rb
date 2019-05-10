@@ -8,7 +8,7 @@ module ApplicationHelper
         if user.avatar.attached?
             return user.avatar
         else
-            return "blank"
+            return "blank.jpg"
         end
     end 
 
@@ -16,7 +16,7 @@ module ApplicationHelper
         if listing.cover.attached?
             return listing.cover
         else
-            return 'coverart'
+            return 'coverart.jpg'
         end
     end 
 

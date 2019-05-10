@@ -14,11 +14,9 @@
 </div>
 
 <%for listing in @user_listings do %>
-    <% if listing.cover.attached?%>
-    <%= image_tag listing.cover %>
-    <%else%>
-    <%= image_tag 'coverart' %>
-    <%end%>
+    
+    <%= image_tag return_cover(listing) %>
+   
 <div> - <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </div>
 <% end %>
 </div>
