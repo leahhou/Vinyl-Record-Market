@@ -5,10 +5,10 @@
 @import "variables";
 
 
-.user_own_profile_view {
+#user_own_profile_view {
     background-color: aqua;
 
-    .users_current_listing_container{
+    #users_current_listing_container{
         font-family: $title-font;
         font-size: 75%;
         display: flex;
@@ -26,4 +26,8 @@
         margin: 0px;
     }
 
+
+
+
+    
 }

@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   post "/payments", to: "payments#stripe"
   get "/payments/success", to: "payments#success"
   # add user prefix to direct to individual profile
+  
   get "users/my_profile", to: "users#userprofile", as: "my_profile"
+  #get “/:id/my_profile”, to: “profiles#index”, as: “profile” Fix?
   get "/users/:id", to: "users#show", as: "user"
   get "/users/my_profile/favorites", to: "users#favorites", as: "my_favorites"
   resources :favorite_listings, only: [:create, :destroy]

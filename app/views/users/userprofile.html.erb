@@ -1,3 +1,5 @@
+<div id = "user_own_profile_view">
+
 <h1> <%=current_user[:username]%> 's Profile <h1>
 
 <%= image_tag return_avatar(@user)%>
@@ -16,7 +18,7 @@
 
 
 <h2> My Current Listings </h2>
-<%# need to verify when new form listing is working! %>
+<%# need to verify when new form listing is working! <- I dont know what that means %>
     <div id = "user_current_listings_container">
             <% for listing in @user_listings %>
         <div class = "user_current_listing">
@@ -32,3 +34,9 @@
         <% end %>
     </div>
 
+<h2> My Current Listings </h2>
+
+
+
+
+</div>

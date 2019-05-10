@@ -22,9 +22,6 @@ def userprofile
 
     @user_listings = current_user.listings
      
-    # Bruce to work on
-    #for i in Purchase.listing_id
-    #@user_listings_sold = Purchase.listing_id
 end
 
 def favorites
