@@ -78,8 +78,8 @@ class ListingsController < ApplicationController
                 listing_id: @listing.id
             }
         },
-        success_url: 'http://localhost:3000',          #MUST be edited to revert back to the correct listing page.
-        cancel_url: 'http://localhost:3000/cancel',    #Needs to be changed before Heroku
+        success_url: 'https://aqueous-atoll-23921.herokuapp.com/',          #MUST be edited to revert back to the correct listing page.
+        cancel_url: 'https://aqueous-atoll-23921.herokuapp.com/',    #Needs to be changed before Heroku
     ) 
     @stripe_session_id = stripe_session.id
     
