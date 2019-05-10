@@ -2,9 +2,8 @@
 <%@favorite_listings.each do |favorite| %>
     <div class ="card">
         
-        <%= link_to image_tag((return_cover(favorite)), listing_path(favorite.id) %>
-        
-    <%=favorite.artist%> :<%=favorite.title%>
+        <%= link_to image_tag((return_cover(favorite)), listing_path(favorite.id)) %>       
+    <%=favorite.artist%> : <%=favorite.title%>
 
     <%=favorite.description%>
     </div>
