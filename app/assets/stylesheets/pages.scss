@@ -9,7 +9,10 @@
         font-family: $logo-font;
         color: #ffffff;
         font-size: 200%;
-        background-image: url("home_banner.jpg");
+        background-image: url(image-path("heroimage.jpg"));
+        background-size: cover;                      /* <------ */
+        background-repeat: no-repeat;
+        background-position: center center; 
         padding: 11%;
     }
     .recent, .popular {
