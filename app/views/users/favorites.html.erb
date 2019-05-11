@@ -1,13 +1,16 @@
-<h1> My Favorite listings </h1>
-<%@favorite_listings.each do |favorite| %>
-    <div class ="card">
-        <%if favorite.cover.attached?%>
-        <%= link_to image_tag(favorite.cover), listing_path(favorite.id) %>
-        <%else%>
-        <%= link_to image_tag('coverart'), listing_path(favorite.id) %>
-        <%end%>
-    <%=favorite.artist%> :<%=favorite.title%>
-
-    <%=favorite.description%>
+<div class="user_page">
+    <h1> My Favorite listings </h1>
+    <div class="user_favourites">
+    <%@favorite_listings.each do |favorite| %>
+        <div class ="card">
+            <%if favorite.cover.attached?%>
+            <%= link_to image_tag(favorite.cover), listing_path(favorite.id) %>
+            <%else%>
+            <%= link_to image_tag('coverart'), listing_path(favorite.id) %>
+            <%end%>
+        <p><%=favorite.artist%> :<%=favorite.title%></p>
+        <p><%=favorite.description%></p>
+        </div>
+    <%end%>
     </div>
-<%end%>
+</div>

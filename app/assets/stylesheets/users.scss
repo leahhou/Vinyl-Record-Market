@@ -17,7 +17,6 @@
             img {
                 width: 300px;
                 height: 300px;
-                margin-left: 0;
             }
         }
         .user_details {
@@ -30,16 +29,70 @@
     }
     .user_current_listings {
         display: flex;
-        flex-direction: column; 
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
         .card {
             text-align: center;
             width: 100%;
             flex: 1 1;
             img {
-                width: 500px;
-                height: 500px;
+                width: 300px;
+                height: 300px;
             }
         }
+    }
+
+    .search_user {
+        margin-left: 20px;
+        display: flex;
+        p {
+            display: inline-block;
+        }
+    }
+    .search_user_results {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        width: 80%;
+        margin: 0 auto;
+        ul {
+            padding-left:0;
+            margin-left: 20px;
+            li {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                img {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        }
+    }
+    .user_favourites {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        width: 80%;
+        margin: 0 auto;
+        .card {
+            padding: 0 20px 20px;
+            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            img {
+                width: 300px;
+                height: 300px;
+            }
+
+        }
+
     }
 }
 
@@ -52,26 +105,12 @@
                     width: 300px;
                     height: 300px;
                 }
-
             }
             .user_details {
                 margin-left: 50px;
                 p {
                     font-weight: normal;
                     font-size: 1em;
-                }
-            }
-        }
-        .user_current_listings {
-            display: flex;
-            flex-direction: row;
-            .card {
-                text-align: center;
-                width: 33%;
-                flex: 1 1 1;
-                img {
-                    width: 200px;
-                    height: 200px;
                 }
             }
         }

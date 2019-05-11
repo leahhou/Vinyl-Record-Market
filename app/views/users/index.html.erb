@@ -1,18 +1,22 @@
-<h1> All Sellers </h1>
+<div class="user_page">
 
-<%= search_form_for @q do |f| %>
+  <h1> All Sellers </h1>
+  <div class="search_user">
+    <%= search_form_for @q do |f| %>
+      <p><%= f.label :username_cont %></p>
+      <p><%= f.search_field :username_cont %></p>
+      <p><%= f.submit %></p>
+    <% end %>
+  </div>
 
-  <%= f.label :username_cont %>
-  <%= f.search_field :username_cont %>
-
-  <%= f.submit %>
-<% end %>
-
-
-<% @results.each do |result| %>
-<ul>
-<li>
-<a href="<%= user_path(result.id)%>"> <%=result.username%> </a>
-</li>
-</ul>
-<% end %>
+  <div class="search_user_results">
+    <% @results.each do |result| %>
+    <ul>
+      <li>
+      <%= image_tag return_avatar(result)%>
+      <a href="<%= user_path(result.id)%>"> <%=result.username%></a>
+      </li>
+    </ul>
+    <% end %>
+  </div>
+</div>
