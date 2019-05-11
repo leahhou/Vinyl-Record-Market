@@ -1,0 +1,57 @@
+@import "variables";
+
+.browse_albums {
+    .search_albums {
+        margin-top: 20px;
+        display: flex;
+        margin-left: 20px;
+        p {
+            display: inline-block
+        }
+        #label {
+            font-size: 1em;
+            border-bottom: 0.5px solid rgb(85, 82, 82);
+            padding-bottom: 4px;
+        }
+        #q_title_cont {
+            border: 1px solid rgb(236, 149, 149);
+            padding:9px 50px; 
+            -webkit-border-radius: 5px;
+            border-radius: 5px; 
+        }
+        input[type=submit] {
+            font-size: 1em;
+            padding:6px 15px; 
+            background:#ccc; 
+            border:0 none;
+            cursor:pointer;
+            -webkit-border-radius: 5px;
+            border-radius: 5px; 
+        }
+    }
+    .search_albums_results {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        width: 90%;
+        margin: 0 auto;
+        .card {
+            padding: 0 20px 20px;
+            display: flex;
+            flex-direction: column;
+            display: inline-block;
+            text-align: center;
+            img {
+                width: 250px;
+                height: 250px;
+            }
+            p {
+                font-size: 0.8em;
+                margin: 2px 0;
+            }
+        }
+    }
+}
