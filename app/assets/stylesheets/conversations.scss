@@ -1,14 +1,41 @@
 // Place all the styles related to the conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#conversations {
 
-    .card {
-        border: 1px solid grey;
+#conversations {
+    h1 {
+        margin-left: 20px;
+    }
+    ul {
         display: inline-block;
-        img{
-            height: 50px;
-            width:50px; 
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 1.5em;
+        text-align: center;
+        li {
+            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            padding: 0 30px 30px;
+            a {
+                text-decoration-line: none;
+                text-decoration: none;
+                &:visited {
+                    color: #384040;
+                    }
+                &:hover {
+                    font-weight: 700;
+                }
+            }
+            img {
+                    height: 200px;
+                    width: 200px; 
+            }
         }
     }
 }
