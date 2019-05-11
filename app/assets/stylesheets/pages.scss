@@ -57,9 +57,14 @@
         align-items: center;
         width: 100vw;
         height: 50vw;
-        #wikipedia_image {
-            width: 30vw;
-            height: auto;
+        margin-top: 20px;
+        // #wikipedia_image {
+        //     width: 30vw;
+        //     height: auto;
+        // }
+        img {
+            width: 500px;
+            height: 500px;
         }
 
         #wikipedia_text {
@@ -68,16 +73,15 @@
         }
     }
 
-        display: inline-block;
-        img {
-            width: 200px;
-            height: 200px;
-        }
+        // display: inline-block;
+        // img {
+        //     width: 200px;
+        //     height: 200px;
+        // }
     }
 
 @media screen and (min-width: 1025px)  {
     .home {
-        color: red;
         .recent, .popular {
             font-family: $title-font;
             font-size: 120%;
@@ -96,6 +100,10 @@
         }
         #wikipedia_content {
             flex-direction: row;
+            img {
+                width: 350px;
+                height: 350px;
+            }
         }
     }
 }

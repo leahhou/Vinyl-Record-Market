@@ -35,12 +35,11 @@
         <%end%>
     </div>
 
-    <h2> Featured Artist  </h2>
+    <h2 id="featured_title"> Featured Artist </h2>
 
     <div id = "wikipedia_content">
         <% if @artist_image_url == nil %>  <%# ALL good => Use main image %>
-        <% else %>
-            <img src=<%= @artist_image_url%> alt="An image of the band sourced from wikipedia" id = "wikipedia_image">
+        <% else %><img src=<%= @artist_image_url%> alt="An image of the band sourced from wikipedia" id = "wikipedia_image">
         <% end%>
         <div id = "wikipedia_text">
         <%= @page.summary %>
