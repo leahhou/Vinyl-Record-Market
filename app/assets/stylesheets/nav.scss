@@ -1,5 +1,6 @@
 @import "variables";
 
+// mobile
 .nav_bar {   
     color: #384040; 
     ul {
@@ -16,15 +17,16 @@
         color: #384040;
     }
     a:hover {
-       font-weight: 700;
+        font-weight: 700;
     }
     a:active {
         font-weight: 700;
     }
 }
+
 .nav_bar #logo {
     font-family: $logo-font;
-    font-size: 200%;
+    font-size: 500%;
     padding-left: 20px;
     margin-top: 30px;
     a {
@@ -35,22 +37,52 @@
         }
     }
 }
-#log_out, #sign_up {
-    border-right: none;
+
+.user_nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 250%;
 }
-#new_album, #all_albums {
-    border: 0.1px solid #668181;
+.user_nav ul {
+    margin-left: 20px;
+    display: inline-block;
+    width: 80%;
+    padding-left: 0;
+}
+
+.user_nav li {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.border_button {
+    border: 2px solid #2d3a3a;
     padding-left: 6px; 
     padding-top: 5px; 
     padding-bottom: 5px; 
 }
-#message, #log_in {
-    margin-left: 20px;
+#message {
+    border: none;
 }
-.user_nav {
-    display: flex;
-    justify-content: flex-end;
+
+@media screen and (min-width: 1025px) {
+    .user_nav {
+        flex-direction: row;
+        font-size: 120%;
+    } 
+    .user_nav ul #log_in_view {
+        width: 50%;
+        display: flex;
+    }
+    .border_button  {
+        border: 1px solid #506666;
+    }
+    .nav_bar #logo {
+        font-size: 250%;
+    }
 }
-.user_nav li {
-    display: inline-block;
-}
+
+
+
+
