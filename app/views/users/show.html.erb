@@ -1,29 +1,27 @@
-<h1> <%=@user.username%> 's Profile <h1>
+<div class="user_page">
 
-<%= image_tag return_avatar(@user)%>
+    <h1> <%=@user.username%> 's Profile <h1>
+    <div class="user_info">
+        <div class="user_pic"><%= image_tag return_avatar(@user)%></div>
+        <div class="user_details">
+            <p>Username: <%=@user.username%> </p>
+            <p>Location: <%= @user.location%> </p>
+        </div>
+    </div>
 
-<div>
+   
+    <h2><%= @user.username %>'s Listings</h2>
+    <div class = "user_current_listings">
+        <%for listing in @user_listings do %>
+            <div class='card'>
+                <%if listing.cover.attached?%>
+                <%= link_to image_tag(listing.cover), listing_path(listing.id), class: "album_cover" %>
+                <%else%>
+                <%= link_to image_tag('coverart'), listing_path(listing.id), class: "album_cover" %>
+                <%end%>
+                <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> </p>
+            </div>
+        <% end %>
+    </div>
 
-<p>username: <%=@user.username%> </p>
-<p>location: <%= @user.location%> </p>
-</div>
-
-<div>
-<%=@user.username%>'s Listings
-<%# need to verify when new form listing is working! %>
-</div>
-
-<%for listing in @user_listings do %>
-    <% if listing.cover.attached?%>
-    <%= image_tag listing.cover %>
-    <%else%>
-    <%= image_tag 'coverart' %>
-    <%end%>
-<div> - <%= listing[:title] %> <%= link_to "go to album ", listing_path(listing.id) %> </div>
-<% end %>
-</div>
-
-<div>
- Sold Listing
-<%# Need to hook with purchase %>
 </div>

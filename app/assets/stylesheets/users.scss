@@ -4,26 +4,76 @@
 
 @import "variables";
 
-
-.user_own_profile_view {
-    background-color: aqua;
-
-    .users_current_listing_container{
-        font-family: $title-font;
-        font-size: 75%;
+.user_page {
+    h1, h2 {
+        margin-left: 20px;
+        font-size: 3em;
+    }
+    .user_info {
         display: flex;
-        //flex-direction: column;
-        //align-content: center;
-        justify-content: space-around;
-        flex-wrap: nowrap;
-    
+        align-items: flex-start;
+        .user_pic {
+            margin-left: 0;
+            img {
+                width: 300px;
+                height: 300px;
+                margin-left: 0;
+            }
+        }
+        .user_details {
+            margin-left: 20px;
+            p {
+                font-weight: normal;
+                font-size: 0.7em;
+            }
+        }
     }
-
-    div.user_current_listing{
-        text-align: center;
-        display: inline-block;
-        width: 33%;
-        margin: 0px;
+    .user_current_listings {
+        display: flex;
+        flex-direction: column; 
+        .card {
+            text-align: center;
+            width: 100%;
+            flex: 1 1;
+            img {
+                width: 500px;
+                height: 500px;
+            }
+        }
     }
+}
 
+@media screen and (min-width: 1025px) {
+    .user_page {
+        .user_info {
+            display: flex;
+            .user_pic {
+                img {
+                    width: 300px;
+                    height: 300px;
+                }
+
+            }
+            .user_details {
+                margin-left: 50px;
+                p {
+                    font-weight: normal;
+                    font-size: 1em;
+                }
+            }
+        }
+        .user_current_listings {
+            display: flex;
+            flex-direction: row;
+            .card {
+                text-align: center;
+                width: 33%;
+                flex: 1 1 1;
+                img {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        }
+    }
 }
