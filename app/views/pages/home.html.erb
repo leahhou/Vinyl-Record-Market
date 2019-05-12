@@ -3,40 +3,34 @@
     <div class="home_banner">
     <p>“Vinyl is the real deal. I’ve always felt like, until you buy the vinyl record, you don’t really own the album. And it’s not just me or a little pet thing or some kind of retro romantic thing from the past. It is still alive.” </p>
     <p>Jack White</p>
-    <%# <%= image_tag("home_banner.jpg", id: "home_banner", :alt => "website banner") %> 
     </div>
 
     <h2> most recent records </h2>
     <div class= 'recent'>
-    <% @home_listings.each do |listing| %>
-    
-    <div class='card'>
-         <%= link_to image_tag(return_cover(listing)), listing_path(listing.id), class: "album_cover" %>
-            
-            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
-           </div>
-    <%end%>
+        <% @home_listings.each do |listing| %>
+        <div class='card'>
+            <%= link_to image_tag(return_cover(listing)), listing_path(listing.id), class: "album_cover" %>
+            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%></p>
+        </div>
+        <%end%>
     </div>
     
 
     <h2> most popular records  </h2>
    <div class= 'popular'>
-    <%@most_liked_listings.each do |listing| %>
-             <div class='card'> 
-            
+        <%@most_liked_listings.each do |listing| %>
+        <div class='card'> 
             <%= link_to image_tag(return_cover(listing)), listing_path(listing.id), class: "album_cover" %>
-            
-            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> | <%= link_to "go to album ", listing_path(listing.id)%> </p>
-           </div>
-    <%end%>
+            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%></p>
+        </div>
+        <%end%>
     </div>
 
-    <h2> Featured Artist  </h2>
+    <h2 id="featured_title"> Featured Artist </h2>
 
     <div id = "wikipedia_content">
         <% if @artist_image_url == nil %>  <%# ALL good => Use main image %>
-        <% else %>
-            <img src=<%= @artist_image_url%> alt="An image of the band sourced from wikipedia" id = "wikipedia_image">
+        <% else %><img src=<%= @artist_image_url%> alt="An image of the band sourced from wikipedia" id = "wikipedia_image">
         <% end%>
         <div id = "wikipedia_text">
         <%= @page.summary %>

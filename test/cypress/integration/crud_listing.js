@@ -1,68 +1,70 @@
 describe('Rails Listing CRUD', function() {
 
-    beforeEach(function() {
-        cy.login()
+    before(function() {
+        cy.app("clean")
+        cy.app("seed")
+        
     })
+    
+    beforeEach(function() {
+      cy.login()
+  })
 
     it("create a listing", function() {
         
-           cy.contains("create a new listing").click(); //click "create a new listing" button to go to new listing page
+           cy.contains("Sell A Record").click(); 
     
-           cy.get("[name='listing[artist]']").type("Radiohead"); // type in "Al Green" into artist
+           cy.get("[name='listing[artist]']").type("Radiohead"); 
         
-           cy.get("[name='listing[title]']").type("Pablo Honey "); // type in "Pablo Honest" into artist
+           cy.get("[name='listing[title]']").type("Pablo Honey"); 
 
-           cy.get('select').select('2LP').should('have.value', '1'); // select "2LP" from format dropdown menu
+           cy.get('select').select('2LP').should('have.value', '1'); 
 
-           cy.get("[name='listing[year]']").type("1993"); // type in "1993" into year
+           cy.get("[name='listing[year]']").type("1993"); 
 
-           cy.get("[name='listing[price]']").type("200"); // type in "1993" into year
+           cy.get("[name='listing[price]']").type("200"); 
 
-           cy.get("[type='radio']").check("good"); // choose "wore" in condition
+           cy.get("[type='radio']").check("good"); 
 
-           cy.get("[name='listing[description]']").type("Pick Up Only"); // type in "Pick Up Only" into description.
+           cy.get("[name='listing[description]']").type("Pick Up Only"); 
 
-           cy.contains("Create Listing").click(); // click "create listing" button to submit 1st part of the form
+           cy.contains("Continue").click(); 
+ 
+           cy.get("[type='checkbox']").check(['4', '2']); 
 
-           cy.get("[type='checkbox']").check(['4', '2']); // choose "wore" in condition
-
-           cy.contains("Update Listing").click(); // click "update listing" button to submit 2nd part of the form
+           cy.contains("Create/Update Album").click(); 
 
     });
 
     it("update a listing", function() {
         
         cy.visit("/"); 
-
-        cy.contains("go to album").click()
-
-        cy.contains("edit album").click(); 
-
-        cy.get("[name='listing[artist]']").type("The Beatles"); 
-     
-        cy.get("[name='listing[title]']").type("Hey Jude"); 
+        cy.contains("My Profile").click();
+        cy.contains("My Current Listings");
+        cy.get(".card:first").within(() => {
+            cy.get('a').click();
+          });
+        cy.contains("Edit Album").click(); 
+        cy.get("[name='listing[artist]']").clear().type("The Beatles"); 
+        cy.get("[name='listing[title]']").clear().type("Hey Jude"); 
         cy.get('select').select('2LP').should('have.value', '1'); 
-
-        cy.get("[name='listing[year]']").type("1993"); 
-
+        cy.get("[name='listing[year]']").clear().type("1993"); 
         cy.get("[type='radio']").check("good"); 
+        cy.get("[name='listing[description]']").clear().type("Pick Up Only"); 
+        cy.contains("Continue").click(); 
+        cy.get("[type='checkbox']").check(['4', '2']); 
 
-        cy.get("[name='listing[description]']").type("Pick Up Only"); 
-
-        cy.contains("Update Listing").click(); // click "create listing" button to submit 1st part of the form
-
-        cy.get("[type='checkbox']").check(['4', '2']); // choose "wore" in condition
-
-        cy.contains("Update Listing").click(); // click "update listing" button to submit 2nd part of the 
-
+        cy.contains("Create/Update Album").click(); 
     });
 
     it("delete a listing", function() {
         cy.visit("/"); 
-
-        cy.contains("go to album").click()
-
-        cy.contains("delete album").click(); 
-
+        cy.contains("My Profile").click();
+        cy.contains("My Current Listings");
+        cy.get(".card:first").within(() => {
+            cy.get('a').click();
+          });
+        cy.contains("Delete Album").click(); 
+          cy.url().should('include', '/users/my_profile');
     });
 });

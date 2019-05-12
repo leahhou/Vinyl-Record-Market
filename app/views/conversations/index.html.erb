@@ -1,15 +1,13 @@
 <div id="conversations">
-<h1>Inbox</h1>
-  <ul>
-  <% @conversations.each do |conversation| %>
-    <% recipient = conversation.sender_id == current_user.id ? conversation.receiver : conversation.sender %>
-   <li> <div class='card'>
-    <%=link_to image_tag(return_avatar(recipient)),conversation_messages_path(conversation)  %>
-    <%= link_to recipient.username, conversation_messages_path(conversation) %>
-    </div>
-    </li>
-  <% end %>
-  </ul>
-</ul>
+  <h1>Inbox</h1>
+    <ul>
+      <% @conversations.each do |conversation| %>
+      <% recipient = conversation.sender_id == current_user.id ? conversation.receiver : conversation.sender %>
+      <li> 
+          <%=link_to image_tag(return_avatar(recipient)),conversation_messages_path(conversation)%>
+          <%= link_to recipient.username, conversation_messages_path(conversation) %>
+      </li>
+      <% end %>
+    </ul>
 </div>
 

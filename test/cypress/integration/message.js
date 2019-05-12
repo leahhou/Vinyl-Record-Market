@@ -3,10 +3,13 @@ describe('Message flow', function() {
     before(function() {
         cy.app("clean")
         cy.app("seed")
-        cy.createUser()
-        cy.createListing()
-        // cy.login()
+        
     });
+    
+    beforeEach(function() {
+        cy.login()
+    })
+
     
     it("get to conversations", function() {
         
@@ -20,14 +23,33 @@ describe('Message flow', function() {
 
     
     it("Get to messages from listing", function(){
-        cy.clearCookies()
-        cy.createUser2()
-        cy.createListing2()
-        cy.visit("/")
-        cy.contains("go to album").click();
-        cy.contains("Contact leah").click();
-        cy.contains("Inbox");
+        cy.visit("/users/2")
+        cy.get(".card:first").within(() => {
+            cy.get('a').click();
+          });
+          cy.contains("Message Owner").click();
+        cy.contains("Conversation with");
     });
 
-    it
+    it("Send message", function(){
+        cy.visit("/users/2")
+        cy.get(".card:first").within(() => {
+            cy.get('a').click();
+          });
+          cy.contains("Message Owner").click();
+        cy.contains("Conversation with");
+        cy.get("textarea").clear().type("Test Message Goes Here");
+        cy.contains("Send").click();
+        cy.contains("Test Message Goes Here");
+    });
+
+    it("Check message persists", function(){
+        cy.visit("/"); 
+        cy.contains("Messages").click();
+        cy.get("#conversations").within(() => {
+            cy.get('a:first').click();
+          });
+          cy.contains("Test Message Goes Here");
+
+    });
 });

@@ -1,10 +1,13 @@
-<h1> My Favorite listings </h1>
-<%@favorite_listings.each do |favorite| %>
-    <div class ="card">
-        
-        <%= link_to image_tag((return_cover(favorite)), listing_path(favorite.id)) %>       
-    <%=favorite.artist%> : <%=favorite.title%>
-
-    <%=favorite.description%>
+<div class="user_page">
+    <h1> My Favorite listings </h1>
+    <div class="user_favourites">
+    <%@favorite_listings.each do |favorite| %>
+        <div class ="card">
+            <%= link_to image_tag(return_cover(favorite)), listing_path(favorite.id) %>
+           
+        <p><%=favorite.artist%> :<%=favorite.title%></p>
+        <p><%=favorite.description%></p>
+        </div>
+    <%end%>
     </div>
-<%end%>
+</div>

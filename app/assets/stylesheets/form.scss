@@ -1,0 +1,265 @@
+@import "variables";
+
+.new_form, .edit_form {
+    h1 {
+        text-align: center;
+        width:80%;
+        margin-left: 20px;
+        font-size: 2.8em;
+    }
+    .form_1 {
+        .form_body {
+            border: 1.2px solid rgb(41, 40, 40);
+            padding:30px 0;
+            width:80%;
+            margin-left: 20px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            .form_section_conditions {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                p {
+                    font-size: 2.5em;
+                    margin-left: 8px;
+                    width: 70%;
+                    margin-top: 10px;
+                    display: inline-block;
+                }
+                .grand_radion_selection {
+                    display: flex;
+                    align-items: flex-start;
+                    background-color: rgb(235, 240, 238);
+                    padding: 7px;
+                    margin-left: 10px;
+                    width: 69%;
+                    .radio_section {
+                        display: inline-block;
+                        .radio_option {
+                            font-size: 2em;
+                            display: inline-block;
+                        }
+                        .radio_button {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+            .form_section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .form_title {
+                    font-size: 2.5em;
+                    margin-left: 8px;
+                    width: 70%;
+                    margin-top: 10px;
+                }
+                .form_title_submit {
+                    border: 1px solid rgb(98, 133, 134);
+                    background-color: rgb(98, 133, 134);
+                    margin-left: 8px;
+                    margin-top: 30px;
+                    font-size: 2em;
+                    padding: 7px;
+                    -webkit-border-radius: 5px;
+                    border-radius: 5px; 
+                }
+                .form_field {
+                    width: 70%;
+                    height: 50px;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    background-color: rgb(235, 240, 238); 
+                    border: 1px solid rgb(235, 240, 238);
+                    -webkit-border-radius: 5px;
+                    border-radius: 5px; 
+                }
+                #listing_format_id {
+                    border: 1px solid rgb(235, 240, 238);
+                    background-color: rgb(235, 240, 238); 
+                    width: 70%;
+                    height: 50px;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    -webkit-border-radius: 5px;
+                    border-radius: 5px; 
+                }
+                .form_field_description {
+                    width: 70%;
+                    height: 100px;
+                    margin-top: 10px;
+                    font-size: 2em;
+                    background-color: rgb(235, 240, 238); 
+                    border: 1px solid rgb(235, 240, 238);
+                    margin-left: 10px;
+                    -webkit-border-radius: 5px;
+                    border-radius: 5px; 
+                }
+            }
+        }
+    } 
+} 
+
+.continute_form {
+    h1 {
+        margin-left: 20px;
+    }
+    .form_2 {
+        border: 1.2px solid rgb(41, 40, 40);
+        padding:30px 0;
+        width:80%;
+        margin-left: 20px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        .form_section {
+            p {
+                font-size: 2.5em;
+                margin-left: 8px;
+                width: 70%;
+                margin-top: 10px;
+
+            }
+            .form_genre_section {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                align-items: center;
+                justify-items: center;
+                width: 90%;
+                margin: 0 auto;
+                .genre_check {
+                    display: inline-block;
+                    width: 20%;
+                    font-size: 0.9em;
+                    margin: 5px;
+                }
+            }
+        }
+        .form_section_others {
+            font-size: 2.5em;
+            margin-left: 8px;
+            width: 70%;
+            margin-top: 10px;
+        }
+        .form_submit {
+            .form_title_submit {
+                border: 1px solid rgb(98, 133, 134);
+                background-color: rgb(98, 133, 134);
+                margin-left: 8px;
+                margin-top: 30px;
+                font-size: 2em;
+                padding: 7px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .new_form, .edit_form {
+        h1 {
+            text-align: start;
+            width:40%;
+            margin-left: 20px;
+            font-size: 2.5em;
+        }
+        .form_1 {
+            .form_body {
+                width:40%;
+                border: 1.2px solid rgb(58, 58, 58);
+                padding:10px 0;
+                .form_section_conditions {
+                    align-items: flex-start;
+                    margin-left:10px;
+                    .form_condition_title {
+                        font-size: 1.5em;
+                        width: 40%;
+                    }
+                    .grand_radion_selection {
+                        display: flex;
+                        flex-direction: row;
+                        .radio_section {
+                            display: inline-block;
+                            .radio_option {
+                                font-size: 1.3em;
+                                display: inline-block;
+                            }
+                            .radio_button {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+                .form_section {
+                    align-items: flex-start;
+                    margin-left:10px;
+                    .form_title {
+                        font-size: 1.5em;
+                        width: 40%;
+                    }
+                    .form_title_submit {
+                        font-size: 1.2em;
+                    }
+                    .form_field {
+                        width: 70%;
+                        height: 50px;
+                        font-size: 1.2em;
+                    }
+                    #listing_format_id {
+                        width: 70%;
+                        height: 50px;
+                        font-size: 1em;
+                    }
+                    .form_field_description {
+                        width: 70%;
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+    .continute_form {
+        h1 {
+            text-align: start;
+            width:40%;
+            margin-left: 20px;
+            font-size: 2.5em;
+        }
+        .form_2 {
+            width:40%;
+            border: 1.2px solid rgb(58, 58, 58);
+            padding:10px 0;
+            .form_section {
+                p {
+                    font-size: 1.5em;
+                    width: 40%;
+    
+                }
+                .form_genre_section {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-items: center;
+                    width: 90%;
+                    margin: 0 auto;
+                    .genre_check {
+                        display: inline-block;
+                        width: 20%;
+                    }
+                }
+            }
+            .form_section_others {
+                font-size: 1.5em;
+                width: 40%;
+            }
+            .form_submit {
+                .form_title_submit {
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+}
