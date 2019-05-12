@@ -276,17 +276,16 @@ As Bruce I would like to list my vinyl collection online for sale so that I can 
 * As Bryce I would like to be able to view all the listings from a particular user so that I can see if they have other albums I like
 
 
-![alt text]()
+
 
 
 **Provide Wireframes for your App.**
 
 *INITIAL DRAWING*
-![Shopperoo's inital wireframes b](./docs/wireframe_v1b.jpg)
-![alt text](./docs/images/drawings/IMG_20190510_150052.jpg)
-![alt text](./docs/images/drawings/IMG_20190510_150056.jpg)
-![alt text](./docs/images/drawings/IMG_20190510_150101.jpg)
-![alt text](./docs/images/drawings/IMG_20190510_150105.jpg)
+![initial drawings](./docs/images/drawing/IMG_20190510_150052.jpg)
+![initial drawings](./docs/images/drawing/IMG_20190510_150056.jpg)
+![initial drawings](./docs/images/drawing/IMG_20190510_150101.jpg)
+![initial drawings](./docs/images/drawing/IMG_20190510_150105.jpg)
 
 
 *LO-FI Wire-Frames*
