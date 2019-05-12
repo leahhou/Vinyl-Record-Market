@@ -32,11 +32,11 @@ Yo... I think I understand this Kracken-Vibe
 # RAILS PROJECT APP - DevMarket
 
 1. Link to [published app on Heroku](https://aqueous-atoll-23921.herokuapp.com/)
-2. Link to [Github Repo](https://github.com/ABaulderstone/rails_assesment.git). The 2 remaining team members forked this repo and merged code into.
+2. Link to [Github Repo](https://github.com/ABaulderstone/rails_assesment.git).
    
 ##1. What is the need (i.e. challenge) that you will be addressing in your project?
 
-We would like to build a marketplace that sell exclusively vinyl records. The problem we try to solve are:
+We would like to build an exclusive marketplace that sell vinyl records. 
 
 Create a premium shopping experience that differentiate us from Amazon. As vinyl records are usually associated with high value and premium product., thus our website will offer functionality and user interface that offer the premium shopping experience.
 
@@ -53,7 +53,6 @@ Show relevant music news feed
 
 
 ##2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
-
 
 
 ##3.Describe the project will you be conducting and how. your App will address the needs.
