@@ -1,6 +1,8 @@
 describe('Rails Listing CRUD', function() {
 
     beforeEach(function() {
+        cy.app("clean")
+        cy.app("seed")
         cy.login()
     })
 
@@ -22,11 +24,11 @@ describe('Rails Listing CRUD', function() {
 
            cy.get("[name='listing[description]']").type("Pick Up Only"); 
 
-           cy.contains("Create Listing").click(); 
-
+           cy.contains("Continue").click(); 
+ 
            cy.get("[type='checkbox']").check(['4', '2']); 
 
-           cy.contains("Continue").click(); 
+           cy.contains("Create/Update Album").click(); 
 
     });
 
@@ -34,8 +36,8 @@ describe('Rails Listing CRUD', function() {
         
         cy.visit("/"); 
         cy.contains("My Profile").click();
-        cy.contains("Update Profile");
-        cy.get(".user_current_listing:first").within(() => {
+        cy.contains("My Current Listings");
+        cy.get(".card:first").within(() => {
             cy.get('a').click();
           });
         cy.contains("Edit Album").click(); 
@@ -45,20 +47,20 @@ describe('Rails Listing CRUD', function() {
         cy.get("[name='listing[year]']").clear().type("1993"); 
         cy.get("[type='radio']").check("good"); 
         cy.get("[name='listing[description]']").clear().type("Pick Up Only"); 
-        cy.contains("Update Listing").click(); 
+        cy.contains("Continue").click(); 
         cy.get("[type='checkbox']").check(['4', '2']); 
 
-        cy.contains("Update Listing").click(); 
+        cy.contains("Create/Update Album").click(); 
     });
 
     it("delete a listing", function() {
         cy.visit("/"); 
         cy.contains("My Profile").click();
-        cy.contains("Update Profile");
-        cy.get(".user_current_listing:first").within(() => {
+        cy.contains("My Current Listings");
+        cy.get(".card:first").within(() => {
             cy.get('a').click();
           });
         cy.contains("Delete Album").click(); 
-
+          cy.url().should('include', '/users/my_profile');
     });
 });
