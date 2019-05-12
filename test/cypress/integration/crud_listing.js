@@ -1,10 +1,14 @@
 describe('Rails Listing CRUD', function() {
 
-    beforeEach(function() {
+    before(function() {
         cy.app("clean")
         cy.app("seed")
-        cy.login()
+        
     })
+    
+    beforeEach(function() {
+      cy.login()
+  })
 
     it("create a listing", function() {
         

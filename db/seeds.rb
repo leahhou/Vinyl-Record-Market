@@ -30,6 +30,20 @@ if Format.count == 0
       end 
       
       if Listing.count == 0 
+            #need user_id 2 for testing
+            Listing.create(
+                  user_id: 2,
+                  title: Faker::Music.album,
+                  artist: Faker::Music.band,
+                  year: (1900..2019).to_a.sample,
+                  format_id: (1..4).to_a.sample,
+                  genre_ids: (1..4).to_a,
+                  price: (5..2000).to_a.sample,
+                  condition: (0..3).to_a.sample,
+                  description: Faker::TvShows::GameOfThrones.quote
+              )
+            
+
             for i in 1..6
                   Listing.create(
                       user_id: (1..3).to_a.sample,

@@ -6,17 +6,66 @@ describe('Rails Sign Up Create', function() {
     it("Create a new user", function() {
 
         
-        cy.visit("/users/sign_up"); // go to sign up page correctly
+        cy.visit("/users/sign_up"); 
+        cy.get("[name='user[username]']").type("leah123"); 
+        cy.get("[name='user[email]']").type("hsx_124@hotmail.com"); 
+        cy.get("[name='user[password]']").type("123456"); 
+        cy.get("[name='user[password_confirmation]']").type("123456"); 
+        cy.get("[name='user[location]']").type("Australia");  
+        cy.get("[name='commit']").click(); 
+        cy.contains("Welcome! You have signed up successfully."); 
+    });
+    it("Check to ensure can't create multiple users", function() {
+
         
+        cy.visit("/users/sign_up"); 
+        cy.get("[name='user[username]']").type("leah123"); 
+        cy.get("[name='user[email]']").type("hsx_124@hotmail.com"); 
+        cy.get("[name='user[password]']").type("123456"); 
+        cy.get("[name='user[password_confirmation]']").type("123456"); 
+        cy.get("[name='user[location]']").type("Australia");  
+        cy.get("[name='commit']").click(); 
+        cy.contains("2 errors prohibited this user from being saved"); 
+    });
+
+    it("check username validation", function() {
+
         
-        cy.get("[name='user[username]']").type("leah123"); // select username field and type in leah
-        cy.get("[name='user[email]']").type("hsx_124@hotmail.com"); // select email field and type in email
-        cy.get("[name='user[password]']").type("123456"); // select password field and type in password
-        cy.get("[name='user[password_confirmation]']").type("123456"); // select password confirmation field and retype same password
-        cy.get("[name='user[location]']").type("Australia"); // select location field and type in location
+        cy.visit("/users/sign_up"); 
+        cy.get("[name='user[username]']").type("leah1234@yahoo.com"); 
+        cy.get("[name='user[email]']").type("hsx_1245@hotmail.com"); 
+        cy.get("[name='user[password]']").type("123456"); 
+        cy.get("[name='user[password_confirmation]']").type("123456"); 
+        cy.get("[name='user[location]']").type("Australia"); 
+        cy.get("[name='commit']").click(); 
+        cy.contains("Username is invalid");
+    
+    });
+
+    it("check password length", function() {
+
         
-        cy.get("[name='commit']").click(); //click "sign up" button to sumbit registration form
+        cy.visit("/users/sign_up"); 
+        cy.get("[name='user[username]']").type("newuser99"); 
+        cy.get("[name='user[email]']").type("hsx_12456@hotmail.com"); 
+        cy.get("[name='user[password]']").type("123"); 
+        cy.get("[name='user[password_confirmation]']").type("123"); 
+        cy.get("[name='user[location]']").type("Australia"); 
+        cy.get("[name='commit']").click(); 
+        cy.contains("Password is too short");
+    
+    });
+    it("check password matches", function() {
+
         
-        cy.contains("Welcome! You have signed up successfully."); //automatically redirect to home and show successfully log in
+        cy.visit("/users/sign_up"); 
+        cy.get("[name='user[username]']").type("newuser99"); 
+        cy.get("[name='user[email]']").type("hsx_12456@hotmail.com"); 
+        cy.get("[name='user[password]']").type("123456"); 
+        cy.get("[name='user[password_confirmation]']").type("1234567"); 
+        cy.get("[name='user[location]']").type("Australia"); 
+        cy.get("[name='commit']").click(); 
+        cy.contains("Password confirmation doesn't match");
+    
     });
 });
