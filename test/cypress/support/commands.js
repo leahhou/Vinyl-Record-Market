@@ -94,9 +94,9 @@ Cypress.Commands.add('login', () => {
     cy.visit("/users/sign_in"); // go to sign up page correctly
             
             
-        cy.get("[name='user[login]']").type("leahhou"); // select username field and type in leah
+        cy.get("[name='user[email]']").type("alex@test.com"); // select username field and type in leah
         
-        cy.get("[name='user[password]']").type("123456"); // select password field and type in password
+        cy.get("[name='user[password]']").type("alex1234"); // select password field and type in password
 
         cy.get("[name='commit']").click(); //click "sign up" button to sumbit registration form
         
