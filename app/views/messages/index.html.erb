@@ -1,43 +1,39 @@
-<div id= "messages">
+<div class= "messages">
 
 <h1>Conversation with <%=@conversation.recipient(current_user).username%></h1>
 
-<ul> 
-    <%if @conversations%>
-  <% @conversations.each do |conversation| %>
-    <li>
-      <%= link_to conversation.recipient(current_user).username, conversation_messages_path(conversation) %>
-      <% if !conversation.unread_message_count(current_user).zero? %>
-        (<%= conversation.unread_message_count(current_user) %>)
+  <ul id="ul_1"> 
+      <%if @conversations%>
+        <% @conversations.each do |conversation| %>
+          <li>
+            <%= link_to conversation.recipient(current_user).username, conversation_messages_path(conversation) %>
+            <% if !conversation.unread_message_count(current_user).zero? %>
+              (<%= conversation.unread_message_count(current_user) %>)
+            <% end %>
+          </li>
+        <% end %>
+      <%end%>
+  </ul>
+
+  <ul id="ul_2">
+    <% @messages.each do |message| %>
+      <% if message.body %>
+        <li>
+            <div id="message_info">
+            <%= image_tag return_avatar(message.user) %>
+            <%= message.user.username %> at <%= message.time %> 
+            </div>
+            <p><%= message.body %></p>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-  <%end%>
-</ul>
-
-
-
-<ul>
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <li>
-      <div class="message">
-      <%= image_tag return_avatar(message.user) %>
-        <%= message.user.username %> at <%= message.time %> 
-        <p><%= message.body %></p>
-        </div>
-      </li>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
-<%= form_for [@conversation, @message] do |f| %>
   <div class="field">
-    <%= f.text_area :body, placeholder: "Your message" %>
-    <%= f.submit "Send" %>
+    <%= form_for [@conversation, @message] do |f| %>
+        <%= f.text_area :body, placeholder: "Your message" %>
+        <%= f.submit "Send" %>
+    <% end %>
   </div>
-
-  
-<% end %>
 
 </div>

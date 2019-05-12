@@ -1,3 +1,4 @@
+<div class="form_2">
 <% if @listing.errors.any? %>
     <% for error in @listing.errors.full_messages %>
         <p><%= error %></p>
@@ -5,31 +6,28 @@
 <% end %>
 
 <%= form_with model: listing, url: {action: url}, local: true do |form|%>
-  
-
-
-    <p>Genre</p>
-    <div>
-    <%= hidden_field_tag "listing[genre_id][]", nil%>
-    <% @genres.each do |genre|%>
-      <%= check_box_tag "listing[genre_id][]", genre.id,
-      @listing.genre_ids.include?(genre.id), id: dom_id(genre)%>
-      <%= label_tag dom_id(genre), genre.name%><br>
-      <% end%>
+    <div class="form_section">
+        <p>Genre</p>
+        <div class="form_genre_section">
+        <%= hidden_field_tag "listing[genre_id][]", nil%>
+            <% @genres.each do |genre|%>
+            <div class="genre_check">
+                <%= check_box_tag "listing[genre_id][]", genre.id,
+                @listing.genre_ids.include?(genre.id), id: dom_id(genre)%>
+                <%= label_tag dom_id(genre), genre.name%><br>
+            </div>
+            <% end%>
+        </div>
     </div>
+
     
-    <div>
+    <div class="form_section_others">
         <%= form.label :cover %>
-        <%= form.file_field :cover, accept: "image/png,image/gif,image/jpeg,image/jpg" %>
+        <%= form.file_field :cover, accept: "image/png,image/gif,image/jpeg,image/jpg", class: "img_button"%>
     </div>
 
-
-  
-
-   
-
-    <div>
-        <%= form.submit %>
+    <div class="form_submit">
+        <%= form.submit "Create/Update Album", class: "form_title_submit" %>
     </div>
-
 <% end %>
+</div>
