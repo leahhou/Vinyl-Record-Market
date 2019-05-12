@@ -11,5 +11,13 @@ class Listing < ApplicationRecord
   validates :artist, :title, :year, :format_id, :description, :condition, :price, presence: true
   validates :year, format: {with: /\A(19|20)\d{2}\z/, message: "Please enter year between 1900-2099"}
   # validates :genre_ids, presence: true, on: "update"
+
+  def purchased?
+   if Purchase.find_by(listing_id: self.id) 
+    true 
+   else 
+    false
+  end 
+end
   
 end

@@ -13,12 +13,9 @@
         <%end%>
       </div>
       <div class='album_cover'>
-        <%if @listing.cover.attached?%>
-          <%= image_tag @listing.cover %>
-        <%else%>
-          <%= image_tag 'coverart' %>
-        <%end%>
+          <%= image_tag return_cover(@listing)%>
       </div>
+        
         <%# List Onwer's options %>
       <div class="owner_view">
         <%if signed_in? and listing_owner?(@listing) %>
@@ -32,11 +29,9 @@
     <div class="buyer_options_and_album_display_2">
       <div class="message_and_buy">
       <%# listing_owner is a helper method defined in /helpers/application_helper.rb %>
-        <% unless listing_owner?(@listing)%>
-          <%# <% if @purhcase != nil%>
-            <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>
-          <%# <%end%>
-        <%= link_to "Message Owner #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post  if signed_in?%>
+        <% unless listing_owner?(@listing) or @listing.purchased?%>
+        <button data-stripe="stripePayment"> Buy Album $<%= number_with_precision(@listing.price / 100.0, precision: 2 ) %></button>   
+        <%= link_to "Message Owner #{@listing_owner.username}", conversations_path(sender_id: current_user.id, receiver_id: @listing_owner.id), method: :post%>
         <%end%>
       </div>
       <%# Album info 1%>
@@ -50,7 +45,7 @@
               <% end %> 
             </ul>
             <p>
-              <% if @purchase%>
+              <% if @listing.purchased?%>
               <%= "Status: Sold"%>
               <% else %>
               <%= "Status: Available"%>

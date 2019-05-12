@@ -1,3 +1,4 @@
+
 <div class="user_page">
 
     <h1> <%=current_user[:username]%> 's Profile <h1>
@@ -8,6 +9,7 @@
             <p>Location: <%= current_user[:location] %> </p>
             <p> Collections: <%= link_to 'My Favorites Albums', my_favorites_path %></p>
         </div>
+
     </div>
 
     <h2> My Current Listings </h2>
