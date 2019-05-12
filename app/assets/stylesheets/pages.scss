@@ -17,22 +17,29 @@
     }
     .recent, .popular {
         font-family: $title-font;
-        font-size: 75%;
+        font-size: 150%;
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
-        
-        
+        margin-bottom: 70px;
+        .card {
+            text-align: center;
+            width: 100;
+            img {
+                width: 50%;
+                height: 50%;
+            }
+        }
     }
     
-    div.card{
-        text-align: center;
-        width: 33%;
-        flex: 1 1 1;
-    }
+    display: inline-block;
+  
+    
     h2 {
         font-family: $title-font;
         font-weight:300;
-        font-size: 120%;
+        font-size: 200%;
+        margin-left: 20px;
     }
     a {
         text-decoration-line: none;
@@ -49,23 +56,21 @@
     a:active {
         font-weight: 700;
     }
-    .album_cover {
-    //   need to fix album cover sizing
-    }
-
-
     #wikipedia_content {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         background: $background-a;
         justify-content: space-around;
         align-items: center;
         width: 100vw;
         height: 50vw;
-        #wikipedia_image {
+        margin-top: 20px;
+         img {
             width: 30vw;
             height: auto;
         }
+        
+        
 
         #wikipedia_text {
             width: 60vw;
@@ -73,11 +78,33 @@
         }
     }
 
-        display: inline-block;
-        img {
-    
-            
-            width: 200px;
-            height: 200px;
+       
+    }
+
+@media screen and (min-width: 1025px)  {
+    .home {
+        .recent, .popular {
+            font-family: $title-font;
+            font-size: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            .card {
+                text-align: center;
+                width: 33%;
+                flex: 1 1 1;
+                img {
+                    width: 60%;
+                    height: 75%;
+                }
+            }
+        }
+        #wikipedia_content {
+            flex-direction: row;
+            img {
+                width: 350px;
+                height: 350px;
+            }
         }
     }
+}

@@ -1,18 +1,26 @@
-<h1>Availible Records</h1>
 
-<%= search_form_for @q do |f| %>
-
-  <%= f.label :title_cont %>
-  <%= f.search_field :title_cont %>
-
-  <%= f.submit %>
-<% end %>
+<div class="browse_albums">
 
 
-<% @results.each do |result| %>
-<ul>
-<li>
-<p>Album: <%= result.title %> | Artist: <%= result.artist%> | <%= link_to "go to album ", listing_path(result.id) %></p>
-</li>
-</ul>
-<% end %>
+  <div class="search_albums">
+    <%= search_form_for @q do |f| %>
+      <p id="label"> <%= f.label :title_cont %></p>
+      <p><%= f.search_field :title_cont %></p>
+      <p><%= f.submit %></p>
+    <% end %>
+  </div>
+  <h2> Availble Records </h2>
+
+  <div class='search_albums_results'> 
+    <% @results.each do |result| %>
+      <%unless result.purchased?%>
+      <div class='card'> 
+        <%= link_to image_tag(return_cover(result)), listing_path(result.id), class: "album_cover" %>
+        <p>Album: <%= result.title%></p>
+        <p>Artist: <%= result.artist%></p>
+      </div>
+      <%end%>
+    <% end %>
+  </div>
+
+</div>
