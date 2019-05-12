@@ -273,9 +273,17 @@ As Bruce I would like to list my vinyl collection online for sale so that I can 
 
 **Provide Wireframes for your App.**
 *MOOD BOARDING*
+![mood boarding](./docs/images/mood_board/1.png)
+![mood boarding](./docs/images/mood_board/2.png)
+![mood boarding](./docs/images/mood_board/3.png)
+![mood boarding](./docs/images/mood_board/4.png)
+![mood boarding](./docs/images/mood_board/5.png)
+![mood boarding](./docs/images/mood_board/6.png)
+![mood boarding](./docs/images/mood_board/7.png)
+
 
 *COlOR SCHEME*
-
+![color selection](./docs/images/color_scheme/1.png)
 
 
 *INITIAL DRAWING*
