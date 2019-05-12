@@ -260,7 +260,7 @@ Across the eleven tables our models utilise all basic relationships: one to one,
 
 **Provide your database schema design.**
 
-![ERD](./docs/images/erd/Latest%ERD.png)
+![ERD](./docs/images/erd/ERD.png)
 
 **Provide User stories for your App.**
 
