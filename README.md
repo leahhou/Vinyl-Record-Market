@@ -5,10 +5,6 @@ application up and running.
 
 Things you may want to cover:
 
-This is a test for GitKracken... Y'all have a good day now
-Yo... I think I understand this Kracken-Vibe
-
-
 * Ruby version
 
 * System dependencies
@@ -26,7 +22,6 @@ Yo... I think I understand this Kracken-Vibe
 * Deployment instructions
 
 * Dev branch
-* ... 
 
 
 # RAILS PROJECT APP - DevMarket
@@ -60,7 +55,7 @@ The differentiating factors which we plan on implementing are:
 * Display a “featured-artist” image and information. This will be based on a randomly selected album from the current number of listings. 
 
 
-##3.Describe the project will you be conducting and how. your App will address the needs.
+##3.Describe the project will you be conducting and how your App will address the needs.
 
 Vinyl Countdown will be a two sided marketplace where users will be able to buy and sell individual records. The current sites are either not specific enough or have a sub standard UI/Ux. This puts vinyl countdown in a unique position to capitalize on an already established industry, with a better product. 
 
@@ -265,7 +260,7 @@ Across the eleven tables our models utilise all basic relationships: one to one,
 
 **Provide your database schema design.**
 
-![alt text]()
+![ERD](./docs/images/erd/Latest%ERD.png)
 
 **Provide User stories for your App.**
 
@@ -276,10 +271,12 @@ As Bruce I would like to list my vinyl collection online for sale so that I can 
 * As Bryce I would like to be able to view all the listings from a particular user so that I can see if they have other albums I like
 
 
-
-
-
 **Provide Wireframes for your App.**
+*MOOD BOARDING*
+
+*COlOR SCHEME*
+
+
 
 *INITIAL DRAWING*
 ![initial drawings](./docs/images/drawing/IMG_20190510_150052.jpg)
@@ -383,6 +380,8 @@ Initially a dev branch was created off the master branch. The dev branch was use
 The testing process began with each individual feature on its own branch. Each team member responsible for that branch manually tested the feature as far as possible before merging it into the dev. This testing phase was not documented as it is still a part of the coding phase. 
 
 The automated testing phase was conducted when all the features of the site were complete. Cypress was used for all automated tests and the team pair programmed each test. Because user stories were used as a basis for each feature, they were used again as a basis for testing each feature. The automated tests were written to go down the “happy-path” initially and then edited to test all other outcomes. 
+
+![testing image](./docs/images/testing/1.png)
 
 
 **Discuss and analyse requirements related to information system security.**
