@@ -74,7 +74,7 @@ If the buyer needed to negotiate the price witht the seller or simply to organis
 
 If a user finds another users collection particularly appealing then they are able to display that users entire collection or search the entire database of users with a search function as seen below. 
 
-![User Show](.docs/images/final_images/users_index.png)
+![User index](./docs/images/final_images/users_index.png)
 
 Finally, the profile page, as seen below is what a user would see of their own profile. It displays their current listings and the option to directly message that user. Of course if this was your own profile then the direct messaging feature will not be available.  
 
