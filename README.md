@@ -290,28 +290,28 @@ As Bruce I would like to list my vinyl collection online for sale so that I can 
 
 *LO-FI Wire-Frames*
 
-![Sign in page](.docs/images/lo_fi_wire_frame/1.SignIn.png)
-![Home page](.docs/images/lo_fi_wire_frame/2.Home.png)
-![Home stretch goal](.docs/images/lo_fi_wire_frame/2.1Home(Stretch).png)
-![Single Record Listing](.docs/images/lo_fi_wire_frame/3.Album_Listing(1).png)
-![Single Record Listing](.docs/images/lo_fi_wire_frame/3.3_Album_Listing-Stretch(1).png)
-![Single Record Listing](.docs/images/lo_fi_wire_frame/3.4Album_Listing-Stretch(2).png)
-![Buying an album](.docs/images/lo_fi_wire_frame/4.1_Buy_Album(1).png)
-![Buying an album](.docs/images/lo_fi_wire_frame/4.2_Buy_Album(2).png)
-![Buying an album](.docs/images/lo_fi_wire_frame/4.3_Buy_Album-Stretch(1).png)
-![Buying an album](.docs/images/lo_fi_wire_frame/4.4_Buy_Album-Stretch(2).png)
-![user profile](.docs/images/lo_fi_wire_frame/5.1_User_Profile(1).png)
-![user profile](.docs/images/lo_fi_wire_frame/5.2_User_Profile(2).png)
+![Sign in page](./docs/images/lo_fi_wire_frame/1.SignIn.png)
+![Home page](./docs/images/lo_fi_wire_frame/2.Home.png)
+![Home stretch goal](./docs/images/lo_fi_wire_frame/2.1Home(Stretch).png)
+![Single Record Listing](./docs/images/lo_fi_wire_frame/3.Album_Listing(1).png)
+![Single Record Listing](./docs/images/lo_fi_wire_frame/3.3_Album_Listing-Stretch(1).png)
+![Single Record Listing](./docs/images/lo_fi_wire_frame/3.4Album_Listing-Stretch(2).png)
+![Buying an album](./docs/images/lo_fi_wire_frame/4.1_Buy_Album(1).png)
+![Buying an album](./docs/images/lo_fi_wire_frame/4.2_Buy_Album(2).png)
+![Buying an album](./docs/images/lo_fi_wire_frame/4.3_Buy_Album-Stretch(1).png)
+![Buying an album](./docs/images/lo_fi_wire_frame/4.4_Buy_Album-Stretch(2).png)
+![user profile](./docs/images/lo_fi_wire_frame/5.1_User_Profile(1).png)
+![user profile](./docs/images/lo_fi_wire_frame/5.2_User_Profile(2).png)
 
 *DESKTOP MOCKUP*
-![home](.docs/images/hi_fi_wire_frame/Home_hi-fi2.png)
-![home](.docs/images/hi_fi_wire_frame/Home_hi-fi.png)
-![sign in](.docs/images/hi_fi_wire_frame/Sign_in_Hi-fi.png)
-![record](.docs/images/hi_fi_wire_frame/album_1_hi-fi.png)
-![record](.docs/images/hi_fi_wire_frame/album_2_hi-fi.png)
-![record mobile](.docs/images/hi_fi_wire_frame/album_mobile.png)
-![profile](.docs/images/hi_fi_wire_frame/profile_1_hi-fi.png)
-![profile](.docs/images/hi_fi_wire_frame/profile_2_hi-fi.png)
+![home](./docs/images/hi_fi_wire_frame/Home_hi-fi2.png)
+![home](./docs/images/hi_fi_wire_frame/Home_hi-fi.png)
+![sign in](./docs/images/hi_fi_wire_frame/Sign_in_Hi-fi.png)
+![record](./docs/images/hi_fi_wire_frame/album_1_hi-fi.png)
+![record](./docs/images/hi_fi_wire_frame/album_2_hi-fi.png)
+![record mobile](./docs/images/hi_fi_wire_frame/album_mobile.png)
+![profile](./docs/images/hi_fi_wire_frame/profile_1_hi-fi.png)
+![profile](./docs/images/hi_fi_wire_frame/profile_2_hi-fi.png)
 
 **Describe the way tasks are allocated and tracked in your project.**
 
