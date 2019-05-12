@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
 
 * Ruby version
 Ruby version being run is ruby 2.6.0
 
 * System dependencies
 
-1 aws-sdk-s3 ~> 1.36
+    aws-sdk-s3 ~> 1.36
 
-2 faker ~> 1.9
+    faker ~> 1.9
 
-3 stripe ~> 4.16
+    stripe ~> 4.16
 
-4 ultrahook ~> 0.1.5
+    ultrahook ~> 0.1.5
 
-For other dependencies please check the gemfile
+    see gemfile
 
 * Configuration
 
@@ -52,31 +48,43 @@ Install cypress (see tech stack)
 
 # Instructions to use the app. 
 
+The home page as seen below has several links on it. One would be able to browse all the albums and users collections on the site, however  it would not be possible to interact with other users or buy albums without forst signing in or signing up. Both can be accomplished by clicking on the appropriate buttons as seen on the image.
+
 ![Home page](./docs/images/final_images/home.png)
+
+As part of a dynamic display the six records on screen (as seen below) will change depending on which 3 records are the most “favorited” and which are the most recently added. This will make sure the home page is consistently changing. 
 
 ![Home page Most recent Most popular](./docs/images/final_images/most_recent_most_popular.png)
 
+The featured artist section of the home page is another feature which is constantly changing. A randomly selected artist from one of the 6 listings displayed on the home page is displayed here. The website will scrape Wikipedia for a summary of them and an image to display here. This is another feature which keeps the home page looking fresh. 
+
 ![Featured artist](./docs/images/final_images/featured_artist.png)
+
+In an attempt to streamline and declutter the process if buying and browsing for records Vinyl countdown has a simple display for all records in the page displayed below with a search function for cases where a user is looking for something specific.  
 
 ![Listings Index](./docs/images/final_images/listings_index.png)
 
-![Listing view](./docs/images/final_images/listings_view.png)
+The view below displays all the information about the record that the seller uploaded. There are two important buttons to pay attention to here. The first button being the “Buy button” and the second one being the “message user” button (which will be expanded upon later). The buy button will redirect the user to Stripe Checkout in order to complete the purchase. 
 
 ![Listing purchase](./docs/images/final_images/listings_view_purchase.png)
 
+If the buyer needed to negotiate the price witht the seller or simply to organise the delivery method, the messaging feature is where they would do it. As seen below users are able to message each other privately without other users being able to see it.
+
 ![Messages](./docs/images/final_images/messages.png)
 
-![Users Index](./docs/images/final_images/messages.png)
+If a user finds another users collection particularly appealing then they are able to display that users entire collection or search the entire database of users with a search function as seen below. 
+![User Show](.docs/images/final_images/listings_index.png)
+
+Finally, the profile page, as seen below is what a user would see of their own profile. It displays their current listings and the option to directly message that user. Of course if this was your own profile then the direct messaging feature will not be available.  
 
 ![User Show](./docs/images/final_images/profile.png)
-
    
-##1. What is the need (i.e. challenge) that you will be addressing in your project?
+**1. What is the need (i.e. challenge) that you will be addressing in your project?**
 
 Vinyl countdown is a marketplace that exclusively sells vinyl records. Even though there are similar two way market places that already accomplish this such as ebay.com and discogs.com we feel that they are failing to meet certain essential criteria. Ebay allows any item to be sold on it and is therefore not specific enough because a potential customer may end up purchasing something else instead of a vinyl record. Discogs on the other hand, bombards the user with far too much information and therefore diminishes the user experience/interface which could lead to the loss of sales. 
 
 
-##2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
+**2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?**
 
 The specific aims of Vinyl Countdown are as follows:
 
@@ -90,7 +98,7 @@ The differentiating factors which we plan on implementing are:
 * Display a “featured-artist” image and information. This will be based on a randomly selected album from the current number of listings. 
 
 
-##3.Describe the project will you be conducting and how your App will address the needs.
+**Describe the project will you be conducting and how your App will address the needs.**
 
 Vinyl Countdown will be a two sided marketplace where users will be able to buy and sell individual records. The current sites are either not specific enough or have a sub standard UI/Ux. This puts vinyl countdown in a unique position to capitalize on an already established industry, with a better product. 
 
