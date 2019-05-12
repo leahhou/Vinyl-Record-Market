@@ -6,35 +6,56 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+Ruby version being run is ruby 2.6.0
 
 * System dependencies
 
+aws-sdk-s3 ~> 1.36
+
+faker ~> 1.9
+
+stripe ~> 4.16
+
+ultrahook ~> 0.1.5
+
+For other dependencies please check the gemfile
+
 * Configuration
 
-* Database creation
-
-* Database initialization
-
 * How to run the test suite
+Install yarn
+    $ npm install -g yarn
 
-* Services (job queues, cache servers, search engines, etc.)
+Install cypress (see tech stack)
 
+    $ RAILS_ENV=test rails db:create db:schema:load
+    $ rails server -e test -p 5002
+    $ yarn cypress open -P test
+    
 * Deployment instructions
 
-* Dev branch
+    $ gem install bundler
+    $ bundle install
+
+*Database creation and initialization**
+
+    $ heroku run bundle install
+    $ heroku run rails db:create
+    $ heroku run rails db:migrate
+    $ heroku run rails db:seed
 
 
 # RAILS PROJECT APP - DevMarket
 
 1. Link to [published app on Heroku](https://aqueous-atoll-23921.herokuapp.com/)
-2. Link to [Github Repo](https://github.com/ABaulderstone/rails_assesment.git).
+2. Link to [Github Repo](https://github.com/ABaulderstone/rails_assesment.git)
 
 # Instructions to use the app. 
-set up 
 
-configure
 
-use the app (user instructions)
+
+
+
    
 ##1. What is the need (i.e. challenge) that you will be addressing in your project?
 
@@ -282,11 +303,13 @@ As Bruce I would like to list my vinyl collection online for sale so that I can 
 ![mood boarding](./docs/images/mood_board/7.png)
 
 
-*COlOR SCHEME*
-![color selection](./docs/images/color_scheme/1.png)
+*COlOUR SCHEME*
+
+![colour selection](./docs/images/color_scheme/1.png)
 
 
 *INITIAL DRAWING*
+
 ![initial drawings](./docs/images/drawing/IMG_20190510_150052.jpg)
 ![initial drawings](./docs/images/drawing/IMG_20190510_150056.jpg)
 ![initial drawings](./docs/images/drawing/IMG_20190510_150101.jpg)
