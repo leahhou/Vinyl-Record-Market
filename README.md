@@ -317,16 +317,6 @@ As Bruce I would like to list my vinyl collection online for sale so that I can 
 
 Tasks were assigned by consulting the project timeline gantt chart and checking what needed to be done on that specific day. Thereafter team members volunteered to take on different tasks in pairs or alone. The time criteria for each task was dictated by the gantt chart. Because team members were always present during working hours, they were able to troubleshoot on problems that other team members had. The tasks were then made into sprints and put onto the trello board. 
 
-*INITIAL PLANNING & BRAINSTORMING*
-Insert drawings of frames
-![alt text]()
-
-*INITIAL PLANNING*
-
-![alt text](1.png)
-![alt text](3.png)
-![alt text](4.png)
-
 
 **Discuss how Agile methodology is being implemented in your project.**
 
@@ -374,18 +364,14 @@ Principle 12: “At regular intervals, the team reflects on how to become more e
 **Provide an overview and description of your Source control process.**
 
 *insert GIT Kraken images*
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
-![alt text](1.png)
+![alt text](./docs/images/git/1.png)
+![alt text](./docs/images/git/2.png)
+![alt text](./docs/images/git/3.png)
+![alt text](./docs/images/git/4.png)
+![alt text](./docs/images/git/5.png)
+![alt text](./docs/images/git/6.png)
+![alt text](./docs/images/git/git.png)
+
 
 The tech stack used for source control was GIT, GitHub and GitKracken. Git was used to push/pull code to GitHub and GitKracken was used to visualise the Git repository and everything associated with it.
 
