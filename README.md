@@ -10,13 +10,13 @@ Ruby version being run is ruby 2.6.0
 
 * System dependencies
 
-aws-sdk-s3 ~> 1.36
+1 aws-sdk-s3 ~> 1.36
 
-faker ~> 1.9
+2 faker ~> 1.9
 
-stripe ~> 4.16
+3 stripe ~> 4.16
 
-ultrahook ~> 0.1.5
+4 ultrahook ~> 0.1.5
 
 For other dependencies please check the gemfile
 
@@ -52,21 +52,23 @@ Install cypress (see tech stack)
 
 # Instructions to use the app. 
 
-![ERD](./docs/images/erd/ERD.png)
+![Home page](./docs/images/final_images/home.png)
 
-![ERD](./docs/images/erd/ERD.png)
+![Home page Most recent Most popular](./docs/images/final_images/most_recent_most_popular.png)
 
-![ERD](./docs/images/erd/ERD.png)
+![Featured artist](./docs/images/final_images/featured_artist.png)
 
-![ERD](./docs/images/erd/ERD.png)
+![Listings Index](./docs/images/final_images/listings_index.png)
 
-![ERD](./docs/images/erd/ERD.png)
+![Listing view](./docs/images/final_images/listings_view.png)
 
-![ERD](./docs/images/erd/ERD.png)
+![Listing purchase](./docs/images/final_images/listings_view_purchase.png)
 
-![ERD](./docs/images/erd/ERD.png)
+![Messages](./docs/images/final_images/messages.png)
 
+![Users Index](./docs/images/final_images/messages.png)
 
+![User Show](./docs/images/final_images/profile.png)
 
    
 ##1. What is the need (i.e. challenge) that you will be addressing in your project?
