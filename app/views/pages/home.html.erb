@@ -9,12 +9,7 @@
     <div class= 'recent'>
         <% @home_listings.each do |listing| %>
         <div class='card'>
-            <%if listing.cover.attached?%>
-            <%= link_to image_tag(listing.cover), listing_path(listing.id), class: "album_cover" %>
-            <%else%>
-            <%= link_to image_tag('coverart'), listing_path(listing.id), class: "album_cover" %>
-            <%end%>
-            
+            <%= link_to image_tag(return_cover(listing)), listing_path(listing.id), class: "album_cover" %>
             <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%></p>
         </div>
         <%end%>
@@ -25,12 +20,8 @@
    <div class= 'popular'>
         <%@most_liked_listings.each do |listing| %>
         <div class='card'> 
-            <%if listing.cover.attached?%>
-            <%= link_to image_tag(listing.cover), listing_path(listing.id), class: "album_cover" %>
-            <%else%>
-            <%= link_to image_tag('coverart'), listing_path(listing.id), class: "album_cover" %>
-            <%end%>
-            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> %> </p>
+            <%= link_to image_tag(return_cover(listing)), listing_path(listing.id), class: "album_cover" %>
+            <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%></p>
         </div>
         <%end%>
     </div>

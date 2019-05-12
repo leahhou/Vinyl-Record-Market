@@ -9,18 +9,17 @@
       <p><%= f.submit %></p>
     <% end %>
   </div>
+  <h2> Availble Records </h2>
 
   <div class='search_albums_results'> 
     <% @results.each do |result| %>
+      <%unless result.purchased?%>
       <div class='card'> 
-        <%if result.cover.attached?%>
-          <%= link_to image_tag(result.cover), listing_path(result.id), class: "album_cover" %>
-        <%else%>
-          <%= link_to image_tag('coverart'), listing_path(result.id), class: "album_cover" %>
-        <%end%>
+        <%= link_to image_tag(return_cover(result)), listing_path(result.id), class: "album_cover" %>
         <p>Album: <%= result.title%></p>
         <p>Artist: <%= result.artist%></p>
       </div>
+      <%end%>
     <% end %>
   </div>
 

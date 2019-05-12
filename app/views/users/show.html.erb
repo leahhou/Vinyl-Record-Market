@@ -1,6 +1,6 @@
 <div class="user_page">
 
-    <h1> <%=@user.username%> 's Profile <h1>
+    <h1> <%=@user.username%>'s Profile <h1>
     <div class="user_info">
         <div class="user_pic"><%= image_tag return_avatar(@user)%></div>
         <div class="user_details">
@@ -14,11 +14,7 @@
     <div class = "user_current_listings">
         <%for listing in @user_listings do %>
             <div class='card'>
-                <%if listing.cover.attached?%>
-                <%= link_to image_tag(listing.cover), listing_path(listing.id), class: "album_cover" %>
-                <%else%>
-                <%= link_to image_tag('coverart'), listing_path(listing.id), class: "album_cover" %>
-                <%end%>
+                <%= link_to image_tag(return_cover(listing)), listing_path(listing.id), class: "album_cover" %>
                 <p> Album: <%= listing.title%> |  Artist: <%= listing.artist%> </p>
             </div>
         <% end %>

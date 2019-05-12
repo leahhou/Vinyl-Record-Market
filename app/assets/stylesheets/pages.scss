@@ -9,7 +9,10 @@
         font-family: $logo-font;
         color: #ffffff;
         font-size: 200%;
-        background-image: url("home_banner.jpg");
+        background-image: url(image-path("heroimage.jpg"));
+        background-size: cover;                      /* <------ */
+        background-repeat: no-repeat;
+        background-position: center center; 
         padding: 11%;
     }
     .recent, .popular {
@@ -28,6 +31,10 @@
             }
         }
     }
+    
+    display: inline-block;
+  
+    
     h2 {
         font-family: $title-font;
         font-weight:300;
@@ -58,14 +65,12 @@
         width: 100vw;
         height: 50vw;
         margin-top: 20px;
-        // #wikipedia_image {
-        //     width: 30vw;
-        //     height: auto;
-        // }
-        img {
-            width: 500px;
-            height: 500px;
+         img {
+            width: 30vw;
+            height: auto;
         }
+        
+        
 
         #wikipedia_text {
             width: 60vw;
@@ -73,11 +78,7 @@
         }
     }
 
-        // display: inline-block;
-        // img {
-        //     width: 200px;
-        //     height: 200px;
-        // }
+       
     }
 
 @media screen and (min-width: 1025px)  {
@@ -93,8 +94,8 @@
                 width: 33%;
                 flex: 1 1 1;
                 img {
-                    width: 80%;
-                    height: 80%;
+                    width: 60%;
+                    height: 75%;
                 }
             }
         }

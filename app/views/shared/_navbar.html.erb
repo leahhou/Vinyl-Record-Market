@@ -7,7 +7,7 @@
 
     <nav class="user_nav">
         <ul>
-        <li><%= link_to "Browse All Albums", listings_path, class: "border_button" %></li>
+        <li><%= link_to "Browse All Records", listings_path, class: "border_button" %></li>
         <li><%= link_to "Browse All Sellers", users_path, class: "border_button"%></li>
         </ul>
 
@@ -16,7 +16,7 @@
             <li><%= link_to "My Profile", my_profile_path%></li>
             <li><%= link_to 'My Favorites', my_favorites_path %></li>
             <li><%= link_to 'My Messages', conversations_path, id: "message"%></li>
-            <li><%= link_to "My Album To Sell", new_listing_path, class: "border_button"%></li>
+            <li><%= link_to "Sell A Record", new_listing_path, class: "border_button"%></li>
             <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "border_button" %></li>
         <%else%>
             <li><%= link_to 'Log In', new_user_session_path, class: "border_button" %></li>
