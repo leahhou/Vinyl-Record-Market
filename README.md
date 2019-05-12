@@ -31,7 +31,7 @@ Install cypress (see tech stack)
     $ RAILS_ENV=test rails db:create db:schema:load
     $ rails server -e test -p 5002
     $ yarn cypress open -P test
-    
+
 * Deployment instructions
 
     $ gem install bundler
@@ -52,7 +52,19 @@ Install cypress (see tech stack)
 
 # Instructions to use the app. 
 
+![ERD](./docs/images/erd/ERD.png)
 
+![ERD](./docs/images/erd/ERD.png)
+
+![ERD](./docs/images/erd/ERD.png)
+
+![ERD](./docs/images/erd/ERD.png)
+
+![ERD](./docs/images/erd/ERD.png)
+
+![ERD](./docs/images/erd/ERD.png)
+
+![ERD](./docs/images/erd/ERD.png)
 
 
 
