@@ -12,24 +12,23 @@
             flex-direction: column; 
             .favourite {
                 display: inline-block;
+                display: flex;
+                justify-content: flex-end;
                 margin-bottom: 15px;
-                a {
-                    text-decoration-line: none;
-                    text-decoration: none;
-                    color: #384040;
-                    border: 1px solid  #566464;
-                    padding: 1%;
-                    border-radius: 4%;
+    
+                .add_favourite {
+                    color: rgb(155, 148, 148);
+                    &:hover {
+                        color: rgb(196, 67, 67); 
+                    } 
                 }
-                a:visited {
-                    color: #384040;
+                .remove_favourite {
+                    color: rgb(196, 67, 67);
+                    &:hover {
+                        color: rgb(155, 148, 148);
+                    }
                 }
-                a:hover {
-                    font-weight: 700;
-                }
-                a:active {
-                    font-weight: 700;
-                }
+   
             }
             .album_cover {
                 display: inline-block;
@@ -41,20 +40,15 @@
         }   
         .owner_view {
             margin: 10px;
-            a {
-                text-decoration-line: none;
-                text-decoration: none;
-                color: #384040;
-                font-size: 120%;
+            display: inline-block;
+            display: flex;
+            justify-content: flex-end;
+            .btn {
+
+                color: rgb(110, 105, 105);
+                &:hover {
+                    color: rgb(58, 56, 56); 
                 }
-            a:visited {
-                color: #384040;
-            }
-            a:hover {
-                font-weight: 700;
-            }
-            a:active {
-                font-weight: 700;
             }
         }
 
