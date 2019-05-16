@@ -1,28 +1,54 @@
 <div class = "nav_bar">
 
-    <header id="logo">
+  <header id="logo">
     <%= link_to "Vinyl Countdown", root_path %>
-    
-    </header>
+  </header>
 
-    <nav class="user_nav">
-        <ul>
-        <li><%= link_to "Browse All Records", listings_path, class: "border_button" %></li>
-        <li><%= link_to "Browse All Sellers", users_path, class: "border_button"%></li>
-        </ul>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample03">
+      <ul class="navbar-nav ml-auto">
+      <% if current_user%>
+        <li class="nav-item active">
+          <%= link_to "Sell A Record", new_listing_path, class: "nav-link"%>
+          <%# <a class="nav-link" href="#">Sell A Record<span class="sr-only">(current)</span></a> %>
+        </li>
+      <%end%>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Browse</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown03">
+            <%= link_to "By Albums", listings_path, class: "dropdown-item" %>
+            <%= link_to "By Sellers", users_path, class: "dropdown-item" %>
+            <%# <a class="dropdown-item" href="#">By Albums</a>
+            <a class="dropdown-item" href="#">By Sellers</a> %>
+          </div>
+        </li>
+      <% if current_user%> 
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Profile</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown03">
+          <%= link_to "My Profile", my_profile_path, class: "dropdown-item"%>
+          <%= link_to 'My Favorites', my_favorites_path, class: "dropdown-item"%>
+          <%= link_to 'My Messages', conversations_path, class: "dropdown-item"%>
+          <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+          <%# </div> %>
+        </li>
+      <%else%>
+        <li class="nav-item active">
+            <%=link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'Log In', new_user_session_path, class: "nav-link" %>
+        </li>
+      <%end%>
+      </ul>
+    </div>
 
-        <ul id="log_in_view">
-        <% if current_user%>
-            <li><%= link_to "My Profile", my_profile_path%></li>
-            <li><%= link_to 'My Favorites', my_favorites_path %></li>
-            <li><%= link_to 'My Messages', conversations_path, id: "message"%></li>
-            <li><%= link_to "Sell A Record", new_listing_path, class: "border_button"%></li>
-            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "border_button" %></li>
-        <%else%>
-            <li><%= link_to 'Log In', new_user_session_path, class: "border_button" %></li>
-            <li><%=link_to "Sign Up", new_user_registration_path, class: "border_button" %></li>
-        <%end%>
-        </ul>
-    </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+  </nav>
 </div>
 

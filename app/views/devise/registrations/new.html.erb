@@ -1,4 +1,4 @@
-<div class="devise">
+<div class="devise text-center">
   <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -19,10 +19,10 @@
       <%= f.password_field :password, autocomplete: "new-password", class: "form_field" %>
     </div>
 
-  <div class="field">
-  <%= f.label :avatar %>
-  <%=f.file_field :avatar %>
-</div>
+    <div class="field">
+    <%= f.label :avatar, class: "form_title" %>
+    <%=f.file_field :avatar, class: "form_field" %>
+    </div>
 
     <div class="field">
       <%= f.label :password_confirmation, class: "form_title" %><br />

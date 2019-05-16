@@ -2,8 +2,8 @@ class PagesController < ApplicationController
 
   def home 
 
-    @most_liked_listings = Listing.all.sort_by {|listing| listing.favorite_count}.last(3).reverse
-    @home_listings = Listing.last(3).reverse
+    @most_liked_listings = Listing.all.sort_by {|listing| listing.favorite_count}.last(6).reverse
+    @home_listings = Listing.last(6).reverse
   
 
 # Needs to be assessed. If nothing is returned, then remove + " (band)"

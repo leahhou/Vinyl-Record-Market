@@ -1,33 +1,33 @@
-<div class="devise">
+<div class="devise text-center">
+  
   <h2>Log in</h2>
 
- 
-
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email, class: "form_title"%><br />
-      <%= f.text_field :email, class: "form_field" %>
-    </div>
-
-
-    <div class="field">
-      <%= f.label :password, class: "form_title" %><br />
-      <%= f.password_field :password, autocomplete: "current-password", class: "form_field" %>
-    </div>
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-  <% end %>
-    
-    <% if devise_mapping.rememberable? %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :email, class: "form_title"%><br />
+        <%= f.text_field :email, class: "form_field" %>
+      </div>
+      <div class="field">
+        <%= f.label :password, class: "form_title" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "form_field" %>
+      </div>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+    <% end %>
+      
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Log in"%>
       </div>
     <% end %>
 
-    <div class="actions">
-      <%= f.submit "Log in"%>
-    </div>
-  <% end %>
 </div>
+
+
 
